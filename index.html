@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>梁紫杭 · 个人主页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .resume-card {
+      max-width: 1000px;
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -10px rgba(0, 20, 30, 0.15);
+      overflow: hidden;
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: white;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid #d0ddee;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2c3e50;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .lang-btn.active {
+      background: #1a2b3c;
+      border-color: #1a2b3c;
+      color: white;
+    }
+
+    .lang-btn:hover {
+      background: #e6ecf5;
+    }
+
+    .last-updated {
+      font-size: 0.85rem;
+      color: #7f8c8d;
+      background: #f0f4fa;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+    }
+
+    .main-content {
+      padding: 2.5rem;
+    }
+
+    .name {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0a1929;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      margin-top: 0.5rem;
+      color: #3a5670;
+    }
+
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .email {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px dashed #a0c0e0;
+    }
+
+    .profile-box {
+      background: #f1f6fd;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 2.5rem 0;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #1e2f44;
+      border-left: 4px solid #3f6bb2;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 550;
+      color: #0e263b;
+      margin: 2rem 0 1.2rem 0;
+      border-bottom: 3px solid #e2eaf3;
+      padding-bottom: 0.5rem;
+    }
+
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-tag {
+      background: #eef2f8;
+      color: #1f3a57;
+      padding: 0.5rem 1.4rem;
+      border-radius: 60px;
+      font-size: 1rem;
+      border: 1px solid #d4e0ec;
+    }
+
+    .edu-item {
+      padding: 1rem 0;
+      border-bottom: 1px dashed #dde5ef;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .edu-item:last-child {
+      border-bottom: none;
+    }
+
+    .edu-left {
+      font-weight: 550;
+      font-size: 1.1rem;
+      color: #1d3b5c;
+    }
+
+    .edu-date {
+      color: #597a9f;
+      font-weight: 400;
+    }
+
+    .courses-box {
+      background: #f0f5fe;
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+
+    .courses-title {
+      font-size: 1.3rem;
+      font-weight: 550;
+      color: #1d4e7c;
+      margin-bottom: 1rem;
+    }
+
+    .courses-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+    }
+
+    .course-item {
+      background: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      color: #1f3a57;
+      border: 1px solid #cddef5;
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      text-align: right;
+      font-size: 0.8rem;
+      color: #b1c3d4;
+      border-top: 1px solid #eef2f6;
+      padding-top: 1.5rem;
+    }
+
+    [data-lang="zh"] .en-only,
+    [data-lang="en"] .zh-only {
+      display: none;
+    }
+
+    body[data-lang="zh"] .zh-only { display: inline; }
+    body[data-lang="zh"] .en-only { display: none; }
+    body[data-lang="en"] .zh-only { display: none; }
+    body[data-lang="en"] .en-only { display: inline; }
+
+    @media (max-width: 650px) {
+      .header-bar { flex-direction: column; align-items: start; gap: 1rem; }
+      .name { font-size: 2.5rem; }
+      .main-content { padding: 1.8rem; }
+      .courses-grid { gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body data-lang="zh">
+  <div class="resume-card">
+    <div class="header-bar">
+      <div class="lang-switch">
+        <button class="lang-btn active" id="btn-zh">🇨🇳 中文</button>
+        <button class="lang-btn" id="btn-en">🇬🇧 English</button>
+      </div>
+      <div class="last-updated" id="update-date">最后更新：2026年3月2日</div>
+    </div>
+
+    <div class="main-content">
+      <!-- 姓名 + 基本信息 -->
+      <div>
+        <h1 class="name">
+          <span class="zh-only">梁紫杭</span>
+          <span class="en-only">Zihang Liang</span>
+        </h1>
+        <div class="badge-line">
+          <span class="badge-item">
+            <span class="zh-only">🏫 华东政法大学 · 会计学（司法会计方向）</span>
+            <span class="en-only">🏫 ECUPL · Accounting (Forensic Accounting)</span>
+          </span>
+          <span class="badge-item">
+            <span class="zh-only">📧 邮箱: </span>
+            <span class="en-only">📧 Email: </span>
+            <a href="mailto:3049262925@qq.com" class="email">3049262925@qq.com</a>
+          </span>
+        </div>
+      </div>
+
+      <!-- 个人简介 -->
+      <div class="profile-box">
+        <span class="zh-only">👋 我是梁紫杭，华东政法大学会计学（司法会计方向）专业学生。我热爱用镜头捕捉瞬间，也善于用数据解读世界。严谨细致的专业态度与艺术人文的观察视角，让我在法商融合领域拥有独特的思考方式。</span>
+        <span class="en-only">👋 I'm Zihang Liang, majoring in Accounting (Forensic Accounting) at ECUPL. I love capturing moments through photography and interpreting the world through data. My rigorous professional attitude combined with artistic observation gives me a unique perspective at the intersection of law and business.</span>
+      </div>
+
+      <!-- 技能 (突出摄影) -->
+      <div class="section-title">
+        <span class="zh-only">🔧 核心技能</span>
+        <span class="en-only">🔧 Core Skills</span>
+      </div>
+      <div class="skills-cloud">
+        <span class="skill-tag">📸 摄影 (人像/纪实)</span>
+        <span class="skill-tag">Python / 数据分析</span>
+        <span class="skill-tag">Excel / 财务软件</span>
+        <span class="skill-tag">会计实务</span>
+        <span class="skill-tag">司法会计基础</span>
+        <span class="skill-tag">Lightroom / 后期</span>
+        <span class="skill-tag">写作 / 报告</span>
+        <span class="skill-tag">英语 CET-6</span>
+      </div>
+
+      <!-- 教育经历 -->
+      <div class="section-title">
+        <span class="zh-only">📖 教育经历</span>
+        <span class="en-only">📖 Education</span>
+      </div>
+      
+      <div class="edu-item">
+        <span class="edu-left zh-only">华东政法大学 · 会计学（司法会计方向）</span>
+        <span class="edu-left en-only">ECUPL · Accounting (Forensic Accounting)</span>
+        <span class="edu-date">2024.09 – 至今</span>
+      </div>
+      
+      <div class="edu-item">
+        <span class="edu-left zh-only">浙江省上虞中学</span>
+        <span class="edu-left en-only">Shangyu High School, Zhejiang</span>
+        <span class="edu-date">2021.09 – 2024.06</span>
+      </div>
+      
+      <div class="edu-item">
+        <span class="edu-left zh-only">上虞外国语学校</span>
+        <span class="edu-left en-only">Shangyu Foreign Language School</span>
+        <span class="edu-date">2018.09 – 2021.06</span>
+      </div>
+      
+      <div class="edu-item">
+        <span class="edu-left zh-only">浙江博文小学</span>
+        <span class="edu-left en-only">Zhejiang Bowen Primary School</span>
+        <span class="edu-date">2012.09 – 2018.06</span>
+      </div>
+
+      <!-- 课程经历 (你列出的高分课程) -->
+      <div class="courses-box">
+        <div class="courses-title">
+          <span class="zh-only">📚 已修课程 (均高分通过)</span>
+          <span class="en-only">📚 Completed Courses (High Achievement)</span>
+        </div>
+        <div class="courses-grid">
+          <span class="course-item">高等数学</span>
+          <span class="course-item">线性代数</span>
+          <span class="course-item">微观经济学</span>
+          <span class="course-item">宏观经济学</span>
+          <span class="course-item">基础会计</span>
+          <span class="course-item">管理学</span>
+          <span class="course-item">Python程序设计</span>
+          <span class="course-item">统计学</span>
+        </div>
+        <!-- 英文版课程 (切换时显示) -->
+        <div class="courses-grid en-only" style="margin-top: 0.5rem;">
+          <span class="course-item">Advanced Mathematics</span>
+          <span class="course-item">Linear Algebra</span>
+          <span class="course-item">Microeconomics</span>
+          <span class="course-item">Macroeconomics</span>
+          <span class="course-item">Financial Accounting</span>
+          <span class="course-item">Management</span>
+          <span class="course-item">Python Programming</span>
+          <span class="course-item">Statistics</span>
+        </div>
+      </div>
+
+      <!-- 研究兴趣 / 职业方向 (融入摄影视角) -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+        <div style="background: #f9fcff; padding: 1.3rem 1.6rem; border-radius: 20px; border: 1px solid #e5ecf5;">
+          <h3 style="font-size: 1.3rem; color: #153e60; margin-bottom: 0.8rem;">
+            <span class="zh-only">🧪 研究兴趣</span>
+            <span class="en-only">🧪 Research Interests</span>
+          </h3>
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">▹ <span class="zh-only">司法会计鉴定</span><span class="en-only">Forensic Accounting</span></li>
+            <li style="margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">▹ <span class="zh-only">财务数据分析</span><span class="en-only">Financial Data Analysis</span></li>
+            <li style="margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">▹ <span class="zh-only">纪实摄影与社会观察</span><span class="en-only">Documentary Photography & Social Observation</span></li>
+          </ul>
+        </div>
+        <div style="background: #f9fcff; padding: 1.3rem 1.6rem; border-radius: 20px; border: 1px solid #e5ecf5;">
+          <h3 style="font-size: 1.3rem; color: #153e60; margin-bottom: 0.8rem;">
+            <span class="zh-only">💼 职业方向</span>
+            <span class="en-only">💼 Career Orientation</span>
+          </h3>
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">▹ <span class="zh-only">司法会计 / 审计助理</span><span class="en-only">Forensic Accounting / Audit Assistant</span></li>
+            <li style="margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">▹ <span class="zh-only">财务数据分析师</span><span class="en-only">Financial Data Analyst</span></li>
+            <li style="margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">▹ <span class="zh-only">商业摄影 / 内容创作</span><span class="en-only">Commercial Photography / Content Creation</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 页脚最后更新日期 -->
+      <div class="footer-note">
+        <span class="zh-only">📅 最后更新：2026年3月2日</span>
+        <span class="en-only">📅 Last updated: March 2, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const body = document.body;
+      const btnZh = document.getElementById('btn-zh');
+      const btnEn = document.getElementById('btn-en');
+      const headerDate = document.getElementById('update-date');
+      
+      function setLanguage(lang) {
+        body.setAttribute('data-lang', lang);
+        if (lang === 'zh') {
+          btnZh.classList.add('active');
+          btnEn.classList.remove('active');
+          headerDate.innerText = '最后更新：2026年3月2日';
+        } else {
+          btnEn.classList.add('active');
+          btnZh.classList.remove('active');
+          headerDate.innerText = 'Last updated: March 2, 2026';
+        }
+      }
+
+      btnZh.addEventListener('click', () => setLanguage('zh'));
+      btnEn.addEventListener('click', () => setLanguage('en'));
+      setLanguage('zh');
+    })();
+  </script>
+</body>
+</html>
