@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>梁紫杭 | 个人主页</title>
-    <!-- 纯CSS，无任何外部依赖，符合GitHub Pages部署要求 -->
     <style>
         * {
             margin: 0;
@@ -12,7 +11,6 @@
             box-sizing: border-box;
             font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
         }
-
         body {
             background: linear-gradient(145deg, #f0f4fa 0%, #e6ecf5 100%);
             min-height: 100vh;
@@ -21,7 +19,6 @@
             align-items: center;
             padding: 2rem 1.5rem;
         }
-
         .card {
             max-width: 1000px;
             width: 100%;
@@ -32,7 +29,6 @@
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.6);
         }
-
         .lang-bar {
             background: #1f3448;
             padding: 0.9rem 2.5rem;
@@ -40,7 +36,6 @@
             justify-content: flex-end;
             gap: 1rem;
         }
-
         .lang-btn {
             background: transparent;
             border: 1.5px solid #90acc9;
@@ -53,31 +48,24 @@
             transition: 0.2s;
             letter-spacing: 0.3px;
         }
-
         .lang-btn.active {
             background: #ffffff;
             border-color: #ffffff;
             color: #1f3448;
             font-weight: 600;
         }
-
         .lang-btn:hover {
             background: #577594;
             border-color: #9bb7d6;
             color: white;
         }
-
-        /* 语言版本容器 */
         .lang-zh, .lang-en {
             display: none;
             padding: 2.5rem 2.8rem;
         }
-
         .lang-zh.active, .lang-en.active {
             display: block;
         }
-
-        /* 头部信息 */
         .header {
             display: flex;
             flex-wrap: wrap;
@@ -89,14 +77,12 @@
             border-radius: 2rem;
             box-shadow: 0 6px 14px #cddbe9;
         }
-
         .name h1 {
             font-size: 3rem;
             font-weight: 700;
             color: #0a2338;
             line-height: 1.1;
         }
-
         .name .sub {
             font-size: 1.2rem;
             color: #2f4b6e;
@@ -105,7 +91,6 @@
             border-left: 4px solid #527a9c;
             padding-left: 0.8rem;
         }
-
         .contact {
             display: flex;
             flex-wrap: wrap;
@@ -115,25 +100,20 @@
             border-radius: 60px;
             font-size: 1rem;
         }
-
         .contact span {
             display: flex;
             align-items: center;
             gap: 6px;
             color: #11334f;
         }
-
         .contact a {
             color: #11334f;
             text-decoration: none;
             border-bottom: 1px dashed #5f7f9e;
         }
-
         .contact a:hover {
             border-bottom: 1px solid #1e3b5c;
         }
-
-        /* 卡片模块 */
         .section {
             background: #ffffffdd;
             backdrop-filter: blur(4px);
@@ -143,7 +123,6 @@
             box-shadow: 0 8px 18px #b9cfec66;
             border: 1px solid white;
         }
-
         .section-title {
             font-size: 1.9rem;
             font-weight: 600;
@@ -155,12 +134,6 @@
             border-bottom: 3px solid #acc6e0;
             padding-bottom: 0.5rem;
         }
-
-        .section-title i {
-            font-size: 2rem;
-            font-style: normal;
-        }
-
         .bio {
             font-size: 1.15rem;
             background: #e7f0fe;
@@ -169,13 +142,11 @@
             color: #10324e;
             border: 1px solid #bed6f0;
         }
-
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem 1rem;
         }
-
         .skill-item {
             background: #d1e2f8;
             color: #103959;
@@ -186,11 +157,6 @@
             border: 1px solid #9cb9da;
             box-shadow: 0 2px 6px #bed3ef;
         }
-
-        .timeline {
-            margin-top: 0.5rem;
-        }
-
         .timeline-row {
             display: flex;
             flex-wrap: wrap;
@@ -198,17 +164,14 @@
             border-bottom: 1px dashed #a5bedb;
             padding-bottom: 0.8rem;
         }
-
         .timeline-year {
             width: 140px;
             font-weight: 650;
             color: #20425f;
         }
-
         .timeline-desc {
             flex: 1;
         }
-
         .course-badge {
             display: inline-block;
             background: #cbe0f5;
@@ -218,13 +181,11 @@
             font-size: 0.98rem;
             border: 1px solid #8aadd3;
         }
-
         .honor-box {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem 1.2rem;
         }
-
         .honor-item {
             background: #f5efe3;
             padding: 0.6rem 1.6rem;
@@ -233,7 +194,6 @@
             color: #3e3a2b;
             border: 1px solid #cbbca0;
         }
-
         .footer-note {
             text-align: right;
             margin-top: 1.5rem;
@@ -243,8 +203,6 @@
             padding-top: 1.2rem;
             font-weight: 500;
         }
-
-        /* 响应式 */
         @media (max-width: 700px) {
             .lang-zh, .lang-en { padding: 1.5rem; }
             .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
@@ -255,16 +213,13 @@
 </head>
 <body>
 <div class="card">
-
-    <!-- 中英切换按钮 -->
     <div class="lang-bar">
         <button class="lang-btn active" id="btnZH">🇨🇳 中文</button>
         <button class="lang-btn" id="btnEN">🇬🇧 English</button>
     </div>
 
-    <!-- ========= 中文版本 ========= -->
+    <!-- 中文版本 -->
     <div class="lang-zh active" id="contentZH">
-        <!-- 基本信息 -->
         <div class="header">
             <div class="name">
                 <h1>梁紫杭</h1>
@@ -277,7 +232,6 @@
             </div>
         </div>
 
-        <!-- 个人简介 -->
         <div class="section">
             <div class="section-title"><i>📋</i> 个人简介</div>
             <div class="bio">
@@ -285,7 +239,6 @@
             </div>
         </div>
 
-        <!-- 技能 + 研究兴趣/职业方向 -->
         <div class="section">
             <div class="section-title"><i>🔧</i> 技能 & 研究方向</div>
             <div class="skills">
@@ -298,24 +251,22 @@
             </div>
         </div>
 
-        <!-- 教育经历 & 课程经历 -->
         <div class="section">
             <div class="section-title"><i>🎓</i> 教育 & 课程</div>
-            <!-- 教育经历子模块 -->
             <div style="margin-bottom: 2rem;">
-                <h3 style="color: #1f3f5f; margin-bottom: 0.8rem; font-weight: 600;">📌 教育经历</h3>
+                <h3 style="color: #1f3f5f; margin-bottom: 0.8rem;">📌 教育经历</h3>
                 <div class="timeline">
                     <div class="timeline-row">
                         <div class="timeline-year">2024 – 至今</div>
-                        <div class="timeline-desc"><strong>华东政法大学</strong>  · 会计学（司法会计方向）本科</div>
+                        <div class="timeline-desc"><strong>华东政法大学</strong> · 会计学（司法会计方向）本科</div>
                     </div>
                     <div class="timeline-row">
                         <div class="timeline-year">2021 – 2024</div>
-                        <div class="timeline-desc"><strong>浙江省上虞中学</strong>  · 高中</div>
+                        <div class="timeline-desc"><strong>浙江省上虞中学</strong> · 高中</div>
                     </div>
                     <div class="timeline-row">
                         <div class="timeline-year">2018 – 2021</div>
-                        <div class="timeline-desc"><strong>上虞外国语中学</strong>  · 初中</div>
+                        <div class="timeline-desc"><strong>上虞外国语中学</strong> · 初中</div>
                     </div>
                     <div class="timeline-row">
                         <div class="timeline-year">2012 – 2018</div>
@@ -323,9 +274,8 @@
                     </div>
                 </div>
             </div>
-            <!-- 课程经历 -->
             <div>
-                <h3 style="color: #1f3f5f; margin-bottom: 0.8rem; font-weight: 600;">📚 高分通过课程</h3>
+                <h3 style="color: #1f3f5f; margin-bottom: 0.8rem;">📚 高分通过课程</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                     <span class="course-badge">高等数学 (95+)</span>
                     <span class="course-badge">线性代数 (A)</span>
@@ -336,13 +286,9 @@
                     <span class="course-badge">司法会计导论</span>
                     <span class="course-badge">统计学原理</span>
                 </div>
-                <p style="margin-top: 1rem; background: #dbeafe; padding: 0.6rem 1.5rem; border-radius: 30px; color: #002856;">
-                    ⭐ 上述课程均高分通过，具备扎实的数理与商科基础。
-                </p>
             </div>
         </div>
 
-        <!-- 荣誉奖项 -->
         <div class="section">
             <div class="section-title"><i>🏅</i> 荣誉 & 奖学金</div>
             <div class="honor-box">
@@ -351,18 +297,15 @@
                 <span class="honor-item">华东政法大学优秀团员</span>
                 <span class="honor-item">华东政法大学三好学生</span>
             </div>
-            <p style="margin-top: 1.2rem; color: #2f5577;">学术能力、综合素质及道德风尚均获校级认可。</p>
         </div>
 
-        <!-- 最后更新日期 (中文) -->
         <div class="footer-note">
             📅 最后更新：2026年3月5日
         </div>
     </div>
 
-    <!-- ========= 英文版本 ========= -->
+    <!-- 英文版本 -->
     <div class="lang-en" id="contentEN">
-        <!-- Basic info -->
         <div class="header">
             <div class="name">
                 <h1>Zihang Liang</h1>
@@ -375,20 +318,18 @@
             </div>
         </div>
 
-        <!-- Bio EN -->
         <div class="section">
             <div class="section-title"><i>📋</i> Profile</div>
             <div class="bio">
-                Accounting student specialized in forensic accounting, complemented by sharp observational skills from photography and clarity in writing. Rigorous and analytical, passionate about uncovering insights from financial data and contributing to economic justice. Aiming to become a trusted professional in forensic accounting or regulatory compliance.
+                Accounting student specialized in forensic accounting, complemented by sharp observational skills from photography and clarity in writing. Rigorous and analytical, passionate about uncovering insights from financial data and contributing to economic justice.
             </div>
         </div>
 
-        <!-- Skills & Interests EN -->
         <div class="section">
             <div class="section-title"><i>🔧</i> Skills & Interests</div>
             <div class="skills">
-                <span class="skill-item">📷 Photography (documentary/portrait)</span>
-                <span class="skill-item">✍️ Writing (analytical/essay)</span>
+                <span class="skill-item">📷 Photography</span>
+                <span class="skill-item">✍️ Writing</span>
                 <span class="skill-item">🐍 Python / Data Analysis</span>
                 <span class="skill-item">📊 Econometrics / Statistics</span>
                 <span class="skill-item">🔍 Forensic Accounting</span>
@@ -396,12 +337,10 @@
             </div>
         </div>
 
-        <!-- Education & Courses EN -->
         <div class="section">
             <div class="section-title"><i>🎓</i> Education & Courses</div>
-            <!-- Education -->
             <div style="margin-bottom: 2rem;">
-                <h3 style="color: #1f3f5f; margin-bottom: 0.8rem; font-weight: 600;">📌 Education</h3>
+                <h3 style="color: #1f3f5f; margin-bottom: 0.8rem;">📌 Education</h3>
                 <div class="timeline">
                     <div class="timeline-row">
                         <div class="timeline-year">2024 – present</div>
@@ -409,7 +348,7 @@
                     </div>
                     <div class="timeline-row">
                         <div class="timeline-year">2021 – 2024</div>
-                        <div class="timeline-desc"><strong>Shangyu High School, Zhejiang</strong> · High School</div>
+                        <div class="timeline-desc"><strong>Shangyu High School</strong> · High School</div>
                     </div>
                     <div class="timeline-row">
                         <div class="timeline-year">2018 – 2021</div>
@@ -417,13 +356,12 @@
                     </div>
                     <div class="timeline-row">
                         <div class="timeline-year">2012 – 2018</div>
-                        <div class="timeline-desc"><strong>Bowen Elementary School, Zhejiang</strong> · Primary School</div>
+                        <div class="timeline-desc"><strong>Bowen Elementary School</strong> · Primary School</div>
                     </div>
                 </div>
             </div>
-            <!-- Courses EN -->
             <div>
-                <h3 style="color: #1f3f5f; margin-bottom: 0.8rem; font-weight: 600;">📚 High‑achieved Courses</h3>
+                <h3 style="color: #1f3f5f; margin-bottom: 0.8rem;">📚 High-achieved Courses</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
                     <span class="course-badge">Calculus (A)</span>
                     <span class="course-badge">Linear Algebra</span>
@@ -434,37 +372,25 @@
                     <span class="course-badge">Intro to Forensic Accounting</span>
                     <span class="course-badge">Statistics</span>
                 </div>
-                <p style="margin-top: 1rem; background: #dbeafe; padding: 0.6rem 1.5rem; border-radius: 30px; color: #002856;">
-                    ⭐ All passed with distinction, strong quantitative & business foundation.
-                </p>
             </div>
         </div>
 
-        <!-- Honors & Awards EN -->
         <div class="section">
             <div class="section-title"><i>🏅</i> Honors & Scholarships</div>
             <div class="honor-box">
                 <span class="honor-item">Shangyu Youqian Scholarship</span>
-                <span class="honor-item">ECUPL Comprehensive First‑Class Scholarship</span>
+                <span class="honor-item">ECUPL First-Class Scholarship</span>
                 <span class="honor-item">ECUPL Outstanding League Member</span>
                 <span class="honor-item">ECUPL Merit Student</span>
             </div>
-            <p style="margin-top: 1.2rem; color: #2f5577;">Recognized for academic excellence, leadership and character.</p>
         </div>
 
-        <!-- Last update EN -->
         <div class="footer-note">
             📅 Last updated: March 5, 2026
         </div>
     </div>
-
-    <!-- 符合GitHub Pages的纯静态页脚提示 (非必须，但保留) -->
-    <div style="text-align: center; font-size: 0.8rem; padding: 0.5rem 1rem 1rem; color: #6883a0;">
-        ✦ 梁紫杭 · 个人主页 · 中英双语 ✦
-    </div>
 </div>
 
-<!-- 语言切换JavaScript (极简, 零依赖) -->
 <script>
     (function() {
         const zhBtn = document.getElementById('btnZH');
@@ -486,19 +412,9 @@
             }
         }
 
-        zhBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            setActive('zh');
-        });
-        enBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            setActive('en');
-        });
-
-        // 默认中文已激活，无需额外操作
+        zhBtn.addEventListener('click', function() { setActive('zh'); });
+        enBtn.addEventListener('click', function() { setActive('en'); });
     })();
 </script>
-
-<!-- 所有要求均已满足：中英切换、完整个人信息、最后更新日期、教育课程荣誉、邮箱、技能、研究兴趣等 -->
 </body>
 </html>
