@@ -3,673 +3,683 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>梁紫杭 | 我的主页</title>
+    <title>梁紫杭 · 学术型个人主页</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
         }
-        
+
         body {
-            background: #f5f7fa;
-            color: #1e2b3c;
-            line-height: 1.6;
+            background: #e8e3d9;  /* 莫兰迪暖灰基底 */
             padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 2rem;
+
+        /* 主卡片 – 莫兰迪色系主背景 */
+        .main-card {
+            max-width: 1300px;
+            width: 100%;
+            background: #f1efe7;  /* 米白基调，莫兰迪氛围 */
+            border-radius: 32px;
+            box-shadow: 0 25px 45px -12px rgba(90, 80, 70, 0.25);
+            display: flex;
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+            border: 1px solid #dad3c8;
         }
-        
-        /* 左侧卡片 - 个人信息栏 */
+
+        /* ========= 左侧边栏 ========= */
         .sidebar {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 8px 30px rgba(0,20,40,0.08);
-            height: fit-content;
-            position: sticky;
-            top: 2rem;
+            width: 260px;
+            background: #d7d0c4;  /* 莫兰迪灰褐 */
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #c5bbad;
         }
-        
+
         .lang-switch {
-            text-align: right;
-            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
         }
-        
+
         .lang-btn {
             background: transparent;
-            border: 1px solid #d0ddeb;
+            border: 1.5px solid #9b8f7f;
+            color: #4f4a42;
             padding: 0.3rem 1rem;
-            border-radius: 20px;
+            border-radius: 30px;
             font-size: 0.9rem;
+            font-weight: 500;
             cursor: pointer;
-            color: #4a5f73;
-            margin-left: 0.5rem;
+            transition: 0.2s;
         }
-        
+
         .lang-btn.active {
-            background: #1e3b5c;
-            color: white;
-            border-color: #1e3b5c;
+            background: #6b6257;
+            border-color: #6b6257;
+            color: #f3efe8;
         }
-        
+
+        .lang-btn:hover {
+            background: #b9ae9f;
+            border-color: #9b8f7f;
+            color: #2f2c26;
+        }
+
         .avatar {
-            width: 120px;
-            height: 120px;
-            background: #e1e8f0;
+            width: 100px;
+            height: 100px;
+            background: #c4bbae;
             border-radius: 50%;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: #4f6b8a;
-            border: 3px solid white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-size: 2.8rem;
+            color: #5b5348;
+            border: 3px solid #ece3d7;
+            box-shadow: 0 6px 14px #b3a59555;
         }
-        
-        .name {
-            font-size: 1.8rem;
+
+        .name-side {
+            font-size: 1.6rem;
             font-weight: 600;
             text-align: center;
-            margin-bottom: 0.3rem;
+            color: #3e3a33;
+            margin-bottom: 0.2rem;
         }
-        
-        .title {
+
+        .sub-side {
             text-align: center;
-            color: #2f5577;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .institution {
-            text-align: center;
-            color: #5f738c;
-            font-size: 0.95rem;
+            color: #6a6256;
+            font-size: 0.9rem;
             margin-bottom: 2rem;
+            border-bottom: 1px dashed #bcb1a2;
             padding-bottom: 1rem;
-            border-bottom: 1px solid #eef2f6;
         }
-        
-        .info-item {
+
+        /* 导航菜单 */
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+            flex: 1;
+        }
+
+        .nav-item {
+            padding: 0.7rem 1rem;
+            border-radius: 40px;
+            color: #3f3a32;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.15s;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-            color: #2c4056;
-            font-size: 0.95rem;
+            gap: 10px;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
         }
-        
-        .info-item i {
-            width: 24px;
-            color: #4f6b8a;
+
+        .nav-item i {
             font-style: normal;
+            width: 24px;
+            color: #776e60;
         }
-        
-        .info-item a {
-            color: #1e3b5c;
-            text-decoration: none;
-            border-bottom: 1px dotted #9bb7d4;
+
+        .nav-item:hover {
+            background: #c9bfb1;
+            color: #2f2b24;
         }
-        
-        .info-item a:hover {
-            border-bottom: 1px solid #1e3b5c;
+
+        .nav-item.active {
+            background: #9f9484;
+            color: #f2ede5;
+            box-shadow: 0 3px 8px #ab9f8f66;
         }
-        
-        .orcid {
-            background: #f0f6fc;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            margin: 1.5rem 0;
-            text-align: center;
-            color: #1a4972;
+
+        .nav-item.active i {
+            color: #f0e8de;
         }
-        
-        .update-date {
-            font-size: 0.85rem;
-            color: #8a9bb0;
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eef2f6;
-        }
-        
-        /* 右侧主内容区 */
-        .main {
-            background: white;
+
+        .contact-mini {
+            margin-top: auto;
+            background: #cbc1b2;
             border-radius: 24px;
-            padding: 2rem;
-            box-shadow: 0 8px 30px rgba(0,20,40,0.08);
+            padding: 1rem;
+            font-size: 0.85rem;
+            color: #3d3831;
         }
-        
+
+        .contact-mini div {
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .update-badge {
+            font-size: 0.75rem;
+            color: #625b50;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* ========= 右侧内容区 ========= */
+        .content {
+            flex: 1;
+            background: #f6f3ed;  /* 莫兰迪米白 */
+            padding: 2.5rem 2.5rem;
+            overflow-y: auto;
+            max-height: 85vh;
+        }
+
+        /* 内容区块 */
         .section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.8rem;
+            scroll-margin-top: 1.5rem;
         }
-        
+
         .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #0a2338;
-            margin-bottom: 1.2rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #eef2f6;
+            font-size: 1.8rem;
+            font-weight: 550;
+            color: #4d443a;
+            margin-bottom: 1.3rem;
+            border-left: 6px solid #b7aa99;
+            padding-left: 1.2rem;
+            letter-spacing: -0.3px;
         }
-        
-        .bio {
-            background: #f8fafd;
-            padding: 1.5rem;
-            border-radius: 16px;
-            color: #1f3a57;
-            line-height: 1.8;
+
+        .bio-block {
+            background: #ece6dc;
+            padding: 1.8rem 2rem;
+            border-radius: 28px;
+            color: #3f3a32;
+            border: 1px solid #d6cdc0;
+            box-shadow: inset 0 1px 5px #ddd3c6;
         }
-        
-        /* 技能专长区域 - 适合本科生 */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.2rem;
-            margin: 1rem 0;
+
+        .highlight {
+            background: #e3d9ce;
+            border-radius: 20px;
+            padding: 1rem 1.8rem;
+            margin: 1.2rem 0;
+            color: #3a342c;
         }
-        
-        .skill-card {
-            background: #f8fafd;
-            border-radius: 16px;
-            padding: 1.2rem;
-            border: 1px solid #e6ecf5;
-        }
-        
-        .skill-category {
-            font-weight: 600;
-            color: #1e3b5c;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-            border-left: 4px solid #527a9c;
-            padding-left: 0.5rem;
-        }
-        
-        .skill-tags {
+
+        /* 技能标签（保持温和） */
+        .skills-wrapper {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.8rem;
         }
-        
+
         .skill-tag {
-            background: white;
-            color: #2c4056;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            border: 1px solid #d0ddeb;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            background: #dad1c4;
+            color: #3f3a32;
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            border: 1px solid #c0b5a5;
         }
-        
-        /* 实践项目/经历卡片 */
-        .experience-item {
-            background: #f8fafd;
-            border-radius: 16px;
-            padding: 1.2rem;
-            margin-bottom: 1rem;
-            border: 1px solid #e6ecf5;
+
+        /* 实践经历卡片 */
+        .exp-card {
+            background: #ece6dc;
+            border-radius: 24px;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #d2c8ba;
         }
-        
+
         .exp-title {
+            font-size: 1.2rem;
             font-weight: 600;
-            color: #1e3b5c;
-            font-size: 1.1rem;
+            color: #4e4339;
             margin-bottom: 0.3rem;
         }
-        
+
         .exp-meta {
-            color: #5f738c;
+            color: #776d60;
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
-        }
-        
-        .exp-desc {
-            color: #2c4056;
-            font-size: 0.95rem;
-        }
-        
-        .course-item {
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
-            margin-bottom: 1rem;
-            padding: 0.8rem;
-            background: #f9fcff;
-            border-radius: 12px;
-            align-items: center;
         }
-        
-        .course-code {
-            background: #1e3b5c;
-            color: white;
-            padding: 0.2rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            min-width: 60px;
-            text-align: center;
+
+        .exp-desc {
+            color: #4f4940;
         }
-        
-        .course-name {
-            font-weight: 500;
-            color: #1f3a57;
+
+        .badge-award {
+            background: #cbbfaF;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #3b362e;
+            border: 1px solid #b2a694;
+            margin-right: 0.6rem;
+            margin-bottom: 0.5rem;
         }
-        
+
         .honor-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 0.7rem;
         }
-        
+
         .honor-item {
-            background: #f5efe3;
-            padding: 0.5rem 1.2rem;
+            background: #d9cfc0;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            color: #3b342b;
+            border: 1px solid #bfb3a1;
+        }
+
+        .volunteer-tag {
+            background: #ddd2c3;
+            padding: 0.4rem 1.2rem;
             border-radius: 30px;
-            color: #4a3a28;
-            border: 1px solid #e2d3c0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 0.3rem 0.3rem 0 0;
+            border: 1px solid #c1b5a4;
         }
-        
-        .quick-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 1rem 0;
+
+        .position-item {
+            background: #e0d6c9;
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-right: 1rem;
+            margin-bottom: 0.8rem;
+            border: 1px solid #cabead;
         }
-        
-        .quick-link {
-            background: #f0f4fa;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            color: #1e3b5c;
-            text-decoration: none;
-            font-size: 0.95rem;
-            border: 1px solid #d4e2f0;
+
+        .footer-update {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #8b8072;
+            border-top: 1px solid #d8cfc2;
+            padding-top: 1rem;
+            margin-top: 1.5rem;
         }
-        
-        .quick-link:hover {
-            background: #e1ebf7;
+
+        /* 英文/中文切换隐藏逻辑 */
+        .lang-zh, .lang-en {
+            display: none;
         }
-        
+        .lang-zh.active, .lang-en.active {
+            display: block;
+        }
+
+        /* 响应式 */
         @media (max-width: 900px) {
+            .main-card { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #c5bbad; }
+            .content { max-height: none; }
             body { padding: 1rem; }
-            .container { grid-template-columns: 1fr; }
-            .sidebar { position: static; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 左侧个人信息栏 -->
-        <div class="sidebar">
-            <div class="lang-switch">
-                <button class="lang-btn active" id="btnZH">中</button>
-                <button class="lang-btn" id="btnEN">EN</button>
-            </div>
-            
-            <div class="avatar">📸</div>
-            
-            <!-- 中文版本信息 -->
-            <div class="zh-content">
-                <div class="name">梁紫杭</div>
-                <div class="title">会计学（司法会计方向）本科生</div>
-                <div class="institution">华东政法大学 · 商学院</div>
-                
-                <div class="info-item">
-                    <i>📧</i> <a href="mailto:3049262925@qq.com">3049262925@qq.com</a>
-                </div>
-                <div class="info-item">
-                    <i>📍</i> 中国 · 浙江
-                </div>
-                <div class="info-item">
-                    <i>📊</i> 技能：计算机 /剪辑 / 语言能力
-                </div>
-                
-                <div class="orcid">
-                    ⚖️ 司法会计 · 财务分析 · 摄影写作
-                </div>
-                
-                <div class="quick-links">
-                    <a href="#skills" class="quick-link">技能</a>
-                    <a href="#courses" class="quick-link">课程</a>
-                    <a href="#honors" class="quick-link">荣誉</a>
-                </div>
-                
-                <div class="update-date">
-                    📅 最后更新：2026年3月5日
-                </div>
-            </div>
-            
-            <!-- 英文版本信息 (初始隐藏) -->
-            <div class="en-content" style="display: none;">
-                <div class="name">Zihang Liang</div>
-                <div class="title">Undergraduate in Accounting (Forensic Accounting)</div>
-                <div class="institution">East China University of Political Science and Law</div>
-                
-                <div class="info-item">
-                    <i>📧</i> <a href="mailto:3049262925@qq.com">3049262925@qq.com</a>
-                </div>
-                <div class="info-item">
-                    <i>📍</i> Zhejiang, China
-                </div>
-                <div class="info-item">
-                    <i>📊</i> Skills: Python / Video editing / Language skills
-                </div>
-                
-                <div class="orcid">
-                    ⚖️ Forensic Accounting · Financial Analysis · Photography
-                </div>
-                
-                <div class="quick-links">
-                    <a href="#skills" class="quick-link">Skills</a>
-                    <a href="#courses" class="quick-link">Courses</a>
-                    <a href="#honors" class="quick-link">Honors</a>
-                </div>
-                
-                <div class="update-date">
-                    📅 Last updated: March 5, 2026
-                </div>
-            </div>
+<div class="main-card">
+
+    <!-- ========= 左侧固定边栏 ========= -->
+    <div class="sidebar">
+        <div class="lang-switch">
+            <button class="lang-btn active" id="btnZH">🇨🇳 中</button>
+            <button class="lang-btn" id="btnEN">🇬🇧 EN</button>
         </div>
-        
-        <!-- 右侧主内容区 -->
-        <div class="main">
-            <!-- 中文内容 -->
-            <div class="zh-main">
-                <!-- 个人简介 -->
-                <div class="section">
-                    <div class="section-title">📋 个人简介</div>
-                    <div class="bio">
-                        梁紫杭，华东政法大学商学院会计学（司法会计方向）本科生。具备扎实的会计专业基础，同时擅长摄影与写作，善于从多角度观察和分析问题。正在司法会计领域探索财务数据与法律规范的交叉应用。
-                        <br><br>
-                        <strong>✨ 优势：</strong> 严谨的逻辑思维 + 敏锐的观察力 + 良好的文字表达能力
-                    </div>
-                </div>
-                
-                <!-- 技能专长 - 替换掉研究方向 -->
-                <div class="section" id="skills">
-                    <div class="section-title">🔧 技能专长</div>
-                    
-                    <div class="skills-grid">
-                        <div class="skill-card">
-                            <div class="skill-category">专业硬技能</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">基础会计</span>
-                                <span class="skill-tag">财务报表分析</span>
-                                <span class="skill-tag">司法会计基础</span>
-                                <span class="skill-tag">税法基础</span>
-                                <span class="skill-tag">审计基础</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-card">
-                            <div class="skill-category">数据分析</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Python (Pandas)</span>
-                                <span class="skill-tag">Excel 高级应用</span>
-                                <span class="skill-tag">数据可视化</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-card">
-                            <div class="skill-category">研究方法</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">实证分析</span>
-                                <span class="skill-tag">案例研究</span>
-                                <span class="skill-tag">文献综述</span>
-                                <span class="skill-tag">问卷调查</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-card">
-                            <div class="skill-category">综合能力</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">摄影 (纪实/人像)</span>
-                                <span class="skill-tag">写作 (分析/随笔)</span>
-                                <span class="skill-tag">英语 CET-6</span>
-                                <span class="skill-tag">PPT 制作</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 实践经历/项目（可后续补充） -->
-                <div class="section">
-                    <div class="section-title">📌 实践经历</div>
-                    <div class="experience-item">
-                        <div class="exp-title">课程项目：上市公司财务报表分析</div>
-                        <div class="exp-meta">2025 · 基础会计课程 | 小组成员</div>
-                        <div class="exp-desc">选取某上市公司近三年财报，分析其偿债能力、营运能力和盈利能力，完成分析报告并在课堂展示。</div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="exp-title">摄影作品：校园纪实系列</div>
-                        <div class="exp-meta">2024-2025 · 个人创作 | 摄影师</div>
-                        <div class="exp-desc">拍摄华东政法大学校园生活系列照片，部分作品用于学院宣传活动。</div>
-                    </div>
-                </div>
-                
-                <!-- 教育经历 -->
-                <div class="section">
-                    <div class="section-title">🎓 教育经历</div>
-                    <div class="experience-item">
-                        <div class="exp-title">2024 - 至今</div>
-                        <div class="exp-meta">华东政法大学 · 会计学（司法会计方向）本科</div>
-                        <div class="exp-desc">主修课程：基础会计、中级会计、司法会计导论、经济法、审计学</div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="exp-title">2021 - 2024</div>
-                        <div class="exp-meta">浙江省上虞中学 · 高中</div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="exp-title">2018 - 2021</div>
-                        <div class="exp-meta">上虞外国语中学 · 初中</div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="exp-title">2012 - 2018</div>
-                        <div class="exp-meta">浙江省博文小学</div>
-                    </div>
-                </div>
-                
-                <!-- 高分课程 -->
-                <div class="section" id="courses">
-                    <div class="section-title">📚 高分课程</div>
-                    <div class="course-item">
-                        <span class="course-code">95+</span>
-                        <span class="course-name">高等数学 · 线性代数 · 微观经济学</span>
-                    </div>
-                    <div class="course-item">
-                        <span class="course-code">A</span>
-                        <span class="course-name">宏观经济学 · 基础会计 · 管理学 · 统计学原理</span>
-                    </div>
-                    <div class="course-item">
-                        <span class="course-code">荣誉</span>
-                        <span class="course-name">司法会计导论 · 经济法基础</span>
-                    </div>
-                </div>
-                
-                <!-- 荣誉奖项 -->
-                <div class="section" id="honors">
-                    <div class="section-title">🏆 荣誉与奖学金</div>
-                    <div class="honor-list">
-                        <span class="honor-item">上虞佑谦奖学金</span>
-                        <span class="honor-item">华东政法大学综合一等奖学金</span>
-                        <span class="honor-item">华东政法大学优秀团员</span>
-                        <span class="honor-item">华东政法大学三好学生</span>
-                    </div>
-                </div>
-                
-                <!-- 联系方式 -->
-                <div class="section">
-                    <div class="section-title">📧 联系我</div>
-                    <div style="background: #f0f7ff; padding: 1.5rem; border-radius: 16px;">
-                        <p style="margin-bottom: 0.5rem;"><strong>📱 邮箱：</strong> <a href="mailto:3049262925@qq.com" style="color: #1e3b5c;">3049262925@qq.com</a>（建议优先使用QQ邮箱联系）</p>
-                        <p><strong>📍 地址：</strong> 上海市松江区 · 华东政法大学商学院</p>
+
+        <div class="avatar">📸</div>
+        <div class="name-side">梁紫杭</div>
+        <div class="sub-side">会计学(司法会计) · 本科</div>
+
+        <!-- 导航菜单：点击滚动到对应板块 -->
+        <div class="nav-menu" id="navMenu">
+            <button class="nav-item active" data-target="profile"><i>👤</i> 个人简介</button>
+            <button class="nav-item" data-target="skills"><i>🔧</i> 技能专长</button>
+            <button class="nav-item" data-target="practice"><i>📌</i> 实践经历</button>
+            <button class="nav-item" data-target="education"><i>🎓</i> 教育背景</button>
+            <button class="nav-item" data-target="honors"><i>🏅</i> 荣誉奖项</button>
+            <button class="nav-item" data-target="volunteer"><i>🤝</i> 志愿服务</button>
+            <button class="nav-item" data-target="positions"><i>📋</i> 学生职务</button>
+            <button class="nav-item" data-target="contact"><i>📧</i> 联系我</button>
+        </div>
+
+        <!-- 迷你联系方式 (始终可见) -->
+        <div class="contact-mini">
+            <div><span>📧</span> 3049262925@qq.com</div>
+            <div><span>📍</span> 上海 · 华东政法大学</div>
+        </div>
+        <div class="update-badge">📅 最后更新 2026.03.06</div>
+    </div>
+
+    <!-- ========= 右侧动态内容 ========= -->
+    <div class="content" id="contentArea">
+        <!-- 中文版本 (默认显示) -->
+        <div class="lang-zh active" id="zhContent">
+            <!-- 简介区块 -->
+            <div class="section" id="profile">
+                <div class="section-title">👤 个人简介</div>
+                <div class="bio-block">
+                    梁紫杭，华东政法大学商学院会计学（司法会计方向）本科生。具备扎实的会计专业基础，擅长摄影与写作，善于从多维度观察、分析问题。致力于将专业素养与社会实践结合，培养跨领域洞察力。
+                    <div class="highlight" style="margin-top:1rem;">
+                        <strong>✨ 核心优势：</strong> 严谨逻辑 · 敏锐观察 · 文字表达 · 组织协调
                     </div>
                 </div>
             </div>
-            
-            <!-- 英文内容 (初始隐藏) -->
-            <div class="en-main" style="display: none;">
-                <div class="section">
-                    <div class="section-title">📋 Profile</div>
-                    <div class="bio">
-                        Zihang Liang, undergraduate student in Accounting (Forensic Accounting) at East China University of Political Science and Law. Solid foundation in accounting, skilled in photography and writing, with a keen eye for observation and analysis.
-                        <br><br>
-                        <strong>✨ Strengths:</strong> Logical thinking · Observational skills · Written expression
-                    </div>
-                </div>
-                
-                <div class="section" id="skills">
-                    <div class="section-title">🔧 Skills</div>
-                    
-                    <div class="skills-grid">
-                        <div class="skill-card">
-                            <div class="skill-category">Professional</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Financial Accounting</span>
-                                <span class="skill-tag">Forensic Accounting Basics</span>
-                                <span class="skill-tag">Tax Fundamentals</span>
-                                <span class="skill-tag">Auditing Basics</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-card">
-                            <div class="skill-category">Data Analysis</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Python (Pandas)</span>
-                                <span class="skill-tag">Advanced Excel</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-card">
-                            <div class="skill-category">Research Methods</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Empirical Analysis</span>
-                                <span class="skill-tag">Case Study</span>
-                                <span class="skill-tag">Literature Review</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-card">
-                            <div class="skill-category">General</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Photography</span>
-                                <span class="skill-tag">Writing</span>
-                                <span class="skill-tag">English (CET-6)</span>
-                                <span class="skill-tag">Presentation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">📌 Projects</div>
-                    <div class="experience-item">
-                        <div class="exp-title">Financial Statement Analysis Project</div>
-                        <div class="exp-meta">2025 · Course Project</div>
-                        <div class="exp-desc">Analyzed financial statements of a listed company, evaluated solvency and profitability.</div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="exp-title">Campus Photography Series</div>
-                        <div class="exp-meta">2024-2025 · Personal Work</div>
-                        <div class="exp-desc">Documentary photography of ECUPL campus life.</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">🎓 Education</div>
-                    <div class="experience-item">
-                        <div class="exp-title">2024 - Present</div>
-                        <div class="exp-meta">East China University of Political Science and Law · B.A. in Accounting (Forensic Accounting)</div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="exp-title">2021 - 2024</div>
-                        <div class="exp-meta">Shangyu High School, Zhejiang</div>
-                    </div>
-                    <div class="experience-item">
-                        <div class="exp-title">2018 - 2021</div>
-                        <div class="exp-meta">Shangyu Foreign Language Middle School</div>
-                    </div>
-                </div>
-                
-                <div class="section" id="courses">
-                    <div class="section-title">📚 High-achieved Courses</div>
-                    <div class="course-item">
-                        <span class="course-code">95+</span>
-                        <span class="course-name">Calculus · Linear Algebra · Microeconomics</span>
-                    </div>
-                    <div class="course-item">
-                        <span class="course-code">A</span>
-                        <span class="course-name">Macroeconomics · Financial Accounting · Management</span>
-                    </div>
-                </div>
-                
-                <div class="section" id="honors">
-                    <div class="section-title">🏆 Honors & Scholarships</div>
-                    <div class="honor-list">
-                        <span class="honor-item">Shangyu Youqian Scholarship</span>
-                        <span class="honor-item">ECUPL First-Class Scholarship</span>
-                        <span class="honor-item">ECUPL Outstanding League Member</span>
-                        <span class="honor-item">ECUPL Merit Student</span>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">📧 Contact</div>
-                    <div style="background: #f0f7ff; padding: 1.5rem; border-radius: 16px;">
-                        <p style="margin-bottom: 0.5rem;"><strong>📱 Email:</strong> <a href="mailto:3049262925@qq.com" style="color: #1e3b5c;">3049262925@qq.com</a></p>
-                        <p><strong>📍 Address:</strong> Shanghai · ECUPL Business School</p>
-                    </div>
+
+            <!-- 技能专长 -->
+            <div class="section" id="skills">
+                <div class="section-title">🔧 技能专长</div>
+                <div class="skills-wrapper">
+                    <span class="skill-tag">基础会计/财务报表分析</span>
+                    <span class="skill-tag">司法会计基础</span>
+                    <span class="skill-tag">Python/数据分析</span>
+                    <span class="skill-tag">Excel/SPSS</span>
+                    <span class="skill-tag">实证分析/计量基础</span>
+                    <span class="skill-tag">摄影(纪实/人像)</span>
+                    <span class="skill-tag">写作(分析/随笔)</span>
+                    <span class="skill-tag">英语CET-6</span>
+                    <span class="skill-tag">PPT/演讲表达</span>
                 </div>
             </div>
+
+            <!-- 实践经历 (补充详细) -->
+            <div class="section" id="practice">
+                <div class="section-title">📌 实践经历</div>
+
+                <div class="exp-card">
+                    <div class="exp-title">《“青春力”如何转为“消费力”？——“青春经济”可持续发展范式：基于上海市3个区3类发展业态的研究》</div>
+                    <div class="exp-meta">社会实践项目负责人 · 华东政法大学优秀项目 | 2025</div>
+                    <div class="exp-desc">作为负责人统筹调研设计、数据分析与报告撰写，深入上海三区调研青年消费业态，提出青春经济可持续范式，项目获评校级优秀。</div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-title">《反向消费驱动下提振经济活力路径研究——基于青年社群小饭桌经济》</div>
+                    <div class="exp-meta">项目负责人 · 华东政法大学结项项目 | 2024-2025</div>
+                    <div class="exp-desc">主持青年“小饭桌”经济现象研究，运用问卷与访谈法，分析反向消费对经济活力的影响，顺利结项并形成研究报告。</div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-title">华东政法大学第三届团干素能大赛</div>
+                    <div class="exp-meta">团体第三名 | 2025</div>
+                    <div class="exp-desc">代表商学院团委参赛，在理论知识、案例分析、团队协作等环节表现突出，获得校级团体第三名。</div>
+                </div>
+            </div>
+
+            <!-- 教育经历 -->
+            <div class="section" id="education">
+                <div class="section-title">🎓 教育背景</div>
+                <div class="exp-card">
+                    <div class="exp-title">华东政法大学  · 会计学（司法会计方向）本科</div>
+                    <div class="exp-meta">2024 – 至今 | 商学院</div>
+                    <div class="exp-desc">主修：基础会计、中级会计、司法会计导论、经济法、审计学、高等数学、统计学</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-title">浙江省上虞中学 · 高中</div>
+                    <div class="exp-meta">2021 – 2024</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-title">上虞外国语中学 · 初中</div>
+                    <div class="exp-meta">2018 – 2021</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-title">浙江省博文小学</div>
+                    <div class="exp-meta">2012 – 2018</div>
+                </div>
+            </div>
+
+            <!-- 荣誉奖项 -->
+            <div class="section" id="honors">
+                <div class="section-title">🏅 荣誉奖项</div>
+                <div class="honor-list">
+                    <span class="honor-item">上虞佑谦奖学金</span>
+                    <span class="honor-item">华东政法大学综合一等奖学金</span>
+                    <span class="honor-item">华东政法大学优秀团员</span>
+                    <span class="honor-item">华东政法大学三好学生</span>
+                    <span class="honor-item">团干素能大赛团体第三名</span>
+                </div>
+            </div>
+
+            <!-- 志愿服务 -->
+            <div class="section" id="volunteer">
+                <div class="section-title">🤝 志愿服务</div>
+                <div>
+                    <span class="volunteer-tag">上海自然博物馆志愿者</span>
+                    <span class="volunteer-tag">青浦区马拉松志愿者</span>
+                    <span class="volunteer-tag">商院书信传递志愿者</span>
+                    <span class="volunteer-tag">招生宣讲志愿者</span>
+                    <span class="volunteer-tag">闵行区图书馆志愿者</span>
+                </div>
+                <p style="margin-top: 1rem; color: #5b5348;">累计志愿服务时长100+小时，积极参与社会公益。</p>
+            </div>
+
+            <!-- 学生职务 -->
+            <div class="section" id="positions">
+                <div class="section-title">📋 学生职务</div>
+                <div>
+                    <span class="position-item">商学院团委组织部 部长</span>
+                    <span class="position-item">华东政法大学大学生创业协会团务部 理事</span>
+                </div>
+                <p style="margin-top: 1rem; color: #5b5348;">负责组织建设、团务统筹及创业协会思想引领工作，多次策划校级活动。</p>
+            </div>
+
+            <!-- 联系我 -->
+            <div class="section" id="contact">
+                <div class="section-title">📧 联系我</div>
+                <div class="bio-block">
+                    <p style="margin-bottom: 0.5rem;"><strong>📱 邮箱：</strong> <a href="mailto:3049262925@qq.com" style="color:#3f3a32; text-decoration:underline dotted;">3049262925@qq.com</a> (优先)</p>
+                    <p><strong>📍 地址：</strong> 上海市松江区 · 华东政法大学商学院</p>
+                </div>
+            </div>
+            <div class="footer-update">📅 页面最后更新：2026年3月6日</div>
+        </div>
+
+        <!-- 英文版本 (结构与中文对应，仅翻译关键信息) -->
+        <div class="lang-en" id="enContent">
+            <div class="section" id="profile-en">
+                <div class="section-title">👤 Profile</div>
+                <div class="bio-block">
+                    Zihang Liang, undergraduate student in Accounting (Forensic Accounting) at East China University of Political Science and Law. Solid accounting foundation, skilled in photography & writing, with multi-dimensional observation and analysis abilities.
+                    <div class="highlight" style="margin-top:1rem;"><strong>✨ Strengths:</strong> Logical thinking · Observational skills · Written expression · Organization</div>
+                </div>
+            </div>
+            <div class="section" id="skills-en">
+                <div class="section-title">🔧 Skills</div>
+                <div class="skills-wrapper">
+                    <span class="skill-tag">Financial Accounting</span>
+                    <span class="skill-tag">Forensic Accounting Basics</span>
+                    <span class="skill-tag">Python/Data Analysis</span>
+                    <span class="skill-tag">Excel/SPSS</span>
+                    <span class="skill-tag">Econometrics</span>
+                    <span class="skill-tag">Photography</span>
+                    <span class="skill-tag">Writing</span>
+                    <span class="skill-tag">English CET-6</span>
+                </div>
+            </div>
+            <div class="section" id="practice-en">
+                <div class="section-title">📌 Projects</div>
+                <div class="exp-card">
+                    <div class="exp-title">“Youth Economy” Sustainability Research (Shanghai)</div>
+                    <div class="exp-meta">Project Leader · ECUPL Excellent Project | 2025</div>
+                    <div class="exp-desc">Led research on youth consumption patterns across 3 districts; awarded university-level excellence.</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-title">Reverse Consumption & “Small Table” Economy</div>
+                    <div class="exp-meta">Project Leader · Completed Project | 2024-2025</div>
+                    <div class="exp-desc">Investigated reverse consumption among youth using surveys and interviews; completed final report.</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-title">Youth League Cadre Competition</div>
+                    <div class="exp-meta">Team Third Prize | 2025</div>
+                    <div class="exp-desc">Represented Business School and won third place in university-level competition.</div>
+                </div>
+            </div>
+            <div class="section" id="education-en">
+                <div class="section-title">🎓 Education</div>
+                <div class="exp-card"><div class="exp-title">ECUPL · B.A. Accounting (Forensic)</div><div class="exp-meta">2024 – present</div></div>
+                <div class="exp-card"><div class="exp-title">Shangyu High School</div><div class="exp-meta">2021 – 2024</div></div>
+                <div class="exp-card"><div class="exp-title">Shangyu Foreign Language Middle School</div><div class="exp-meta">2018 – 2021</div></div>
+                <div class="exp-card"><div class="exp-title">Bowen Elementary School</div><div class="exp-meta">2012 – 2018</div></div>
+            </div>
+            <div class="section" id="honors-en">
+                <div class="section-title">🏅 Honors</div>
+                <div class="honor-list">
+                    <span class="honor-item">Shangyu Youqian Scholarship</span>
+                    <span class="honor-item">ECUPL First-Class Scholarship</span>
+                    <span class="honor-item">Outstanding League Member</span>
+                    <span class="honor-item">ECUPL Merit Student</span>
+                    <span class="honor-item">Youth League Cadre Competition 3rd Prize</span>
+                </div>
+            </div>
+            <div class="section" id="volunteer-en">
+                <div class="section-title">🤝 Volunteer</div>
+                <span class="volunteer-tag">Shanghai Natural History Museum</span>
+                <span class="volunteer-tag">Qingpu Marathon</span>
+                <span class="volunteer-tag">Library Volunteer</span>
+                <span class="volunteer-tag">Admission Promoter</span>
+                <p style="margin-top:1rem;">100+ volunteer hours, active in community service.</p>
+            </div>
+            <div class="section" id="positions-en">
+                <div class="section-title">📋 Leadership</div>
+                <span class="position-item">Minister, Youth League Organization Dept</span>
+                <span class="position-item">Council Member, Entrepreneurship Association</span>
+            </div>
+            <div class="section" id="contact-en">
+                <div class="section-title">📧 Contact</div>
+                <div class="bio-block">
+                    <p><strong>Email:</strong> <a href="mailto:3049262925@qq.com">3049262925@qq.com</a></p>
+                    <p><strong>Address:</strong> Shanghai · ECUPL Business School</p>
+                </div>
+            </div>
+            <div class="footer-update">📅 Last updated: Mar 6, 2026</div>
         </div>
     </div>
-    
-    <script>
-        (function() {
-            const zhBtn = document.getElementById('btnZH');
-            const enBtn = document.getElementById('btnEN');
-            
-            // 左侧内容
-            const zhSidebar = document.querySelector('.sidebar .zh-content');
-            const enSidebar = document.querySelector('.sidebar .en-content');
-            
-            // 右侧主内容
-            const zhMain = document.querySelector('.zh-main');
-            const enMain = document.querySelector('.en-main');
-            
-            function setActive(lang) {
-                if (lang === 'zh') {
-                    zhBtn.classList.add('active');
-                    enBtn.classList.remove('active');
-                    
-                    zhSidebar.style.display = 'block';
-                    enSidebar.style.display = 'none';
-                    zhMain.style.display = 'block';
-                    enMain.style.display = 'none';
-                } else {
-                    enBtn.classList.add('active');
-                    zhBtn.classList.remove('active');
-                    
-                    enSidebar.style.display = 'block';
-                    zhSidebar.style.display = 'none';
-                    enMain.style.display = 'block';
-                    zhMain.style.display = 'none';
-                }
+</div>
+
+<!-- 交互 JS：语言切换 + 边栏导航滚动 + 激活样式 -->
+<script>
+    (function() {
+        // 语言切换
+        const zhBtn = document.getElementById('btnZH');
+        const enBtn = document.getElementById('btnEN');
+        const zhDiv = document.getElementById('zhContent');
+        const enDiv = document.getElementById('enContent');
+
+        function setLang(lang) {
+            if (lang === 'zh') {
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
+                zhDiv.classList.add('active');
+                enDiv.classList.remove('active');
+                // 导航项文案可不变，但可保留功能
+            } else {
+                enBtn.classList.add('active');
+                zhBtn.classList.remove('active');
+                enDiv.classList.add('active');
+                zhDiv.classList.remove('active');
             }
-            
-            zhBtn.addEventListener('click', () => setActive('zh'));
-            enBtn.addEventListener('click', () => setActive('en'));
-        })();
-    </script>
+            // 保持当前滚动位置
+        }
+
+        zhBtn.addEventListener('click', () => setLang('zh'));
+        enBtn.addEventListener('click', () => setLang('en'));
+
+        // 导航菜单点击滚动 + 激活样式
+        const navItems = document.querySelectorAll('.nav-item');
+        const sections = {
+            profile: 'profile', skills: 'skills', practice: 'practice', education: 'education',
+            honors: 'honors', volunteer: 'volunteer', positions: 'positions', contact: 'contact'
+        };
+
+        function removeActiveClass() {
+            navItems.forEach(item => item.classList.remove('active'));
+        }
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');  // 例如 'profile'
+                // 确定当前语言版本
+                const isZh = zhDiv.classList.contains('active');
+                // 实际要滚动的元素ID：中文版直接使用 targetId，英文版使用 targetId+'-en'，但英文版里ID相同（已设置一致）
+                let element;
+                if (isZh) {
+                    element = document.getElementById(targetId);
+                } else {
+                    // 英文版里ID为 profile-en, skills-en ... 但我们在英文版div中使用了 profile-en, 需要映射
+                    const enMap = {
+                        'profile': 'profile-en',
+                        'skills': 'skills-en',
+                        'practice': 'practice-en',
+                        'education': 'education-en',
+                        'honors': 'honors-en',
+                        'volunteer': 'volunteer-en',
+                        'positions': 'positions-en',
+                        'contact': 'contact-en'
+                    };
+                    element = document.getElementById(enMap[targetId] || targetId);
+                }
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                // 激活样式
+                removeActiveClass();
+                this.classList.add('active');
+            });
+        });
+
+        // 监听滚动高亮对应菜单 (简单处理：根据可视区域)
+        const contentDiv = document.getElementById('contentArea');
+        const allSections = document.querySelectorAll('.section[id], .section[id$="-en"]');
+
+        function updateActiveNavOnScroll() {
+            const scrollPos = contentDiv.scrollTop + 80;  // 内容区的滚动位置
+            const isZh = zhDiv.classList.contains('active');
+            let currentId = '';
+
+            allSections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;  // 相对content的偏移
+                if (scrollPos >= sectionTop) {
+                    // 提取id base
+                    let id = section.id;
+                    if (isZh && id.endsWith('-en')) return;   // 中文时忽略英文板块
+                    if (!isZh && !id.endsWith('-en') && id !== 'profile' && id !== 'skills' && id !== 'practice' && id !== 'education' && id !== 'honors' && id !== 'volunteer' && id !== 'positions' && id !== 'contact') return; // 简单过滤
+                    currentId = id.replace('-en', '');
+                }
+            });
+
+            if (currentId) {
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-target') === currentId) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        contentDiv.addEventListener('scroll', updateActiveNavOnScroll);
+        // 初始激活个人简介
+        document.querySelector('.nav-item[data-target="profile"]').classList.add('active');
+    })();
+</script>
 </body>
 </html>
