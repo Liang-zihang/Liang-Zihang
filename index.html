@@ -74,8 +74,24 @@
         .particle:nth-child(14) { left: 78%; animation-duration: 20s; animation-delay: 7s; }
         .particle:nth-child(15) { left: 88%; width: 3px; height: 3px; animation-duration: 18s; animation-delay: 4.5s; }
 
+        /* 动态渐变背景 */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         body {
-            background: #0a0a0a;
+            background: linear-gradient(
+                135deg,
+                #0a0a0a 0%,
+                #1a150e 25%,
+                #0f0d0a 50%,
+                #1a140c 75%,
+                #0a0a0a 100%
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -85,6 +101,119 @@
             color: #e0d7c0;
             position: relative;
         }
+
+        /* 金色光线扫描效果 */
+        @keyframes lightSweep {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.3;
+            }
+            80% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateX(200%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .light-sweep {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .light-sweep::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(182, 151, 60, 0.08) 50%,
+                transparent 70%
+            );
+            animation: lightSweep 12s linear infinite;
+        }
+
+        /* 闪烁星星 */
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(0.8); }
+        }
+
+        .star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: twinkle 4s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(182, 151, 60, 0.5);
+        }
+
+        .star:nth-child(1) { top: 10%; left: 20%; animation-duration: 3s; }
+        .star:nth-child(2) { top: 30%; left: 80%; width: 3px; height: 3px; animation-duration: 5s; animation-delay: 1s; }
+        .star:nth-child(3) { top: 60%; left: 40%; animation-duration: 4s; animation-delay: 2s; }
+        .star:nth-child(4) { top: 80%; left: 70%; width: 2px; height: 2px; animation-duration: 6s; animation-delay: 0.5s; }
+        .star:nth-child(5) { top: 40%; left: 90%; animation-duration: 3.5s; animation-delay: 1.5s; }
+        .star:nth-child(6) { top: 70%; left: 15%; width: 3px; height: 3px; animation-duration: 4.5s; animation-delay: 2.5s; }
+        .star:nth-child(7) { top: 20%; left: 50%; animation-duration: 5.5s; animation-delay: 0.2s; }
+        .star:nth-child(8) { top: 85%; left: 30%; width: 2px; height: 2px; animation-duration: 3.8s; animation-delay: 1.8s; }
+        .star:nth-child(9) { top: 45%; left: 10%; width: 2px; height: 2px; animation-duration: 4.2s; animation-delay: 2.2s; }
+        .star:nth-child(10) { top: 15%; left: 95%; width: 3px; height: 3px; animation-duration: 5.8s; animation-delay: 0.8s; }
+
+        /* 金色涟漪效果 */
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .ripple-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border: 1px solid rgba(182, 151, 60, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: ripple 8s ease-out infinite;
+        }
+
+        .ripple:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; animation-duration: 6s; }
+        .ripple:nth-child(2) { top: 70%; left: 60%; animation-delay: 2s; animation-duration: 7s; }
+        .ripple:nth-child(3) { top: 40%; left: 80%; animation-delay: 4s; animation-duration: 8s; }
+        .ripple:nth-child(4) { top: 80%; left: 20%; animation-delay: 1s; animation-duration: 5s; }
+        .ripple:nth-child(5) { top: 50%; left: 40%; animation-delay: 3s; animation-duration: 6.5s; }
 
         .golden-container {
             max-width: 1300px;
@@ -795,6 +924,30 @@
         <div class="particle"></div><div class="particle"></div><div class="particle"></div>
     </div>
 
+    <!-- 新增：光线扫描效果 -->
+    <div class="light-sweep"></div>
+    
+    <!-- 新增：闪烁星星 -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    
+    <!-- 新增：金色涟漪 -->
+    <div class="ripple-container">
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+        <div class="ripple"></div>
+    </div>
+
     <!-- 右侧全高导航 -->
     <div class="right-nav">
         <div class="nav-brand">
@@ -1444,4 +1597,3 @@
     </script>
 </body>
 </html>
-               
