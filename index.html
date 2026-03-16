@@ -3,223 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>梁紫杭 · 学术型个人主页</title>
+    <title>梁紫杭 · 黑金简约版</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
         }
 
         body {
-            background: #e8e3d9;  /* 莫兰迪暖灰基底 */
-            padding: 2rem;
+            background: #0c0b0a;  /* 深邃黑底 */
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            padding: 2rem 1.5rem;
         }
 
-        /* 主卡片 – 莫兰迪色系主背景 */
-        .main-card {
+        /* 主容器 – 黑金基调 */
+        .golden-container {
             max-width: 1300px;
             width: 100%;
-            background: #f1efe7;  /* 米白基调，莫兰迪氛围 */
-            border-radius: 32px;
-            box-shadow: 0 25px 45px -12px rgba(90, 80, 70, 0.25);
-            display: flex;
-            overflow: hidden;
-            backdrop-filter: blur(2px);
-            border: 1px solid #dad3c8;
+            background: #121110;  /* 深色背景，带一点暖黑 */
+            border-radius: 36px;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.8), 0 0 0 1px rgba(212, 175, 55, 0.2) inset;
+            padding: 2rem 2.5rem;
+            position: relative;
+            border: 1px solid #3a341c;
         }
 
-        /* ========= 左侧边栏 ========= */
-        .sidebar {
-            width: 260px;
-            background: #d7d0c4;  /* 莫兰迪灰褐 */
-            padding: 2rem 1.2rem;
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid #c5bbad;
-        }
-
-        .lang-switch {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: flex-end;
+        /* ========= 右上角边栏 ========= */
+        .top-right-nav {
+            position: sticky;
+            top: 2rem;
+            float: right;
+            width: auto;
+            max-width: 280px;
+            background: #1e1c18;  /* 黑金深灰 */
+            border-radius: 60px;
+            padding: 0.6rem 1rem;
             margin-bottom: 2rem;
+            margin-left: 2rem;
+            border: 1px solid #b6973c;
+            box-shadow: 0 10px 20px -5px #00000066, 0 0 15px #ffd9661a;
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.2rem;
+            z-index: 10;
         }
 
-        .lang-btn {
+        .nav-pill {
             background: transparent;
-            border: 1.5px solid #9b8f7f;
-            color: #4f4a42;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
+            border: none;
+            color: #c9b477;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
             font-size: 0.9rem;
             font-weight: 500;
             cursor: pointer;
             transition: 0.2s;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-pill:hover {
+            background: #3f3a2b;
+            color: #f3d886;
+            border-color: #b6973c;
+        }
+
+        .nav-pill.active {
+            background: #b28b3c;
+            color: #12100e;
+            font-weight: 600;
+            box-shadow: 0 0 12px #ffd966;
+            border-color: #e5b73b;
+        }
+
+        /* 语言切换 – 也放在右上角 */
+        .lang-group {
+            display: inline-flex;
+            background: #1e1c18;
+            border-radius: 40px;
+            border: 1px solid #66551e;
+            margin-left: 0.5rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: #bbaa77;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            cursor: pointer;
         }
 
         .lang-btn.active {
-            background: #6b6257;
-            border-color: #6b6257;
-            color: #f3efe8;
-        }
-
-        .lang-btn:hover {
-            background: #b9ae9f;
-            border-color: #9b8f7f;
-            color: #2f2c26;
-        }
-
-        .avatar {
-            width: 100px;
-            height: 100px;
-            background: #c4bbae;
-            border-radius: 50%;
-            margin: 0 auto 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.8rem;
-            color: #5b5348;
-            border: 3px solid #ece3d7;
-            box-shadow: 0 6px 14px #b3a59555;
-        }
-
-        .name-side {
-            font-size: 1.6rem;
+            background: #b28b3c;
+            color: #0f0e0b;
             font-weight: 600;
-            text-align: center;
-            color: #3e3a33;
-            margin-bottom: 0.2rem;
         }
 
-        .sub-side {
-            text-align: center;
-            color: #6a6256;
-            font-size: 0.9rem;
+        /* 头像/名称 – 小型标识 */
+        .identity-bar {
+            display: inline-block;
+            background: #1e1c18;
+            border-radius: 60px;
+            padding: 0.4rem 1.5rem 0.4rem 0.8rem;
+            border: 1px solid #665930;
             margin-bottom: 2rem;
-            border-bottom: 1px dashed #bcb1a2;
-            padding-bottom: 1rem;
-        }
-
-        /* 导航菜单 */
-        .nav-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin: 1.5rem 0;
-            flex: 1;
-        }
-
-        .nav-item {
-            padding: 0.7rem 1rem;
-            border-radius: 40px;
-            color: #3f3a32;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.15s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: transparent;
-            border: none;
-            width: 100%;
-            text-align: left;
+            color: #e6d5a6;
+            font-weight: 400;
             font-size: 1rem;
+            clear: both;
         }
 
-        .nav-item i {
-            font-style: normal;
-            width: 24px;
-            color: #776e60;
+        .identity-bar span {
+            background: #b28b3c;
+            color: #0f0e0a;
+            border-radius: 50%;
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.6rem;
+            font-weight: 600;
         }
 
-        .nav-item:hover {
-            background: #c9bfb1;
-            color: #2f2b24;
+        /* 内容区域 – 所有卡片黑金风格 */
+        .content-area {
+            clear: both;
+            color: #ece3cf;
         }
 
-        .nav-item.active {
-            background: #9f9484;
-            color: #f2ede5;
-            box-shadow: 0 3px 8px #ab9f8f66;
-        }
-
-        .nav-item.active i {
-            color: #f0e8de;
-        }
-
-        .contact-mini {
-            margin-top: auto;
-            background: #cbc1b2;
-            border-radius: 24px;
-            padding: 1rem;
-            font-size: 0.85rem;
-            color: #3d3831;
-        }
-
-        .contact-mini div {
-            margin-bottom: 0.4rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .update-badge {
-            font-size: 0.75rem;
-            color: #625b50;
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        /* ========= 右侧内容区 ========= */
-        .content {
-            flex: 1;
-            background: #f6f3ed;  /* 莫兰迪米白 */
-            padding: 2.5rem 2.5rem;
-            overflow-y: auto;
-            max-height: 85vh;
-        }
-
-        /* 内容区块 */
         .section {
-            margin-bottom: 2.8rem;
-            scroll-margin-top: 1.5rem;
+            margin-bottom: 3rem;
+            scroll-margin-top: 5rem;
+            background: rgba(22, 20, 17, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            padding: 2rem 2.5rem;
+            border: 1px solid #4d431f;
+            box-shadow: 0 15px 25px -12px #000000, 0 0 0 1px #ffd9661a inset;
         }
 
         .section-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 550;
-            color: #4d443a;
-            margin-bottom: 1.3rem;
-            border-left: 6px solid #b7aa99;
+            color: #e6c87c;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid #c9a03d;
             padding-left: 1.2rem;
             letter-spacing: -0.3px;
+            text-shadow: 0 2px 5px #00000050;
         }
 
         .bio-block {
-            background: #ece6dc;
-            padding: 1.8rem 2rem;
-            border-radius: 28px;
-            color: #3f3a32;
-            border: 1px solid #d6cdc0;
-            box-shadow: inset 0 1px 5px #ddd3c6;
+            background: #201e19;
+            padding: 1.8rem 2.2rem;
+            border-radius: 32px;
+            color: #e0d7c0;
+            border: 1px solid #776633;
+            box-shadow: inset 0 2px 5px #00000055;
         }
 
-        .highlight {
-            background: #e3d9ce;
+        .gold-highlight {
+            background: #2d291f;
             border-radius: 20px;
             padding: 1rem 1.8rem;
             margin: 1.2rem 0;
-            color: #3a342c;
+            color: #ecd88b;
+            border-left: 4px solid #c9a03d;
         }
 
-        /* 技能标签（保持温和） */
+        /* 技能标签 – 黑金 */
         .skills-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -227,32 +184,33 @@
         }
 
         .skill-tag {
-            background: #dad1c4;
-            color: #3f3a32;
+            background: #26231c;
+            color: #ddc992;
             padding: 0.5rem 1.4rem;
             border-radius: 40px;
             font-size: 0.95rem;
-            border: 1px solid #c0b5a5;
+            border: 1px solid #8f7b3c;
+            box-shadow: 0 2px 5px #00000040;
         }
 
-        /* 实践经历卡片 */
+        /* 经历卡片 */
         .exp-card {
-            background: #ece6dc;
-            border-radius: 24px;
-            padding: 1.4rem 1.8rem;
+            background: #201e18;
+            border-radius: 28px;
+            padding: 1.5rem 2rem;
             margin-bottom: 1.2rem;
-            border: 1px solid #d2c8ba;
+            border: 1px solid #6a592b;
         }
 
         .exp-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            color: #4e4339;
+            color: #e6c468;
             margin-bottom: 0.3rem;
         }
 
         .exp-meta {
-            color: #776d60;
+            color: #b6a26d;
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
             display: flex;
@@ -261,17 +219,17 @@
         }
 
         .exp-desc {
-            color: #4f4940;
+            color: #cdc19e;
         }
 
-        .badge-award {
-            background: #cbbfaF;
+        .badge-gold {
+            background: #4d3f1f;
             padding: 0.3rem 1.2rem;
             border-radius: 30px;
             display: inline-block;
             font-size: 0.9rem;
-            color: #3b362e;
-            border: 1px solid #b2a694;
+            color: #eedba2;
+            border: 1px solid #b6973c;
             margin-right: 0.6rem;
             margin-bottom: 0.5rem;
         }
@@ -283,43 +241,51 @@
         }
 
         .honor-item {
-            background: #d9cfc0;
+            background: #2f2b1f;
             padding: 0.5rem 1.5rem;
             border-radius: 40px;
-            color: #3b342b;
-            border: 1px solid #bfb3a1;
+            color: #e6d5a6;
+            border: 1px solid #8f7b3c;
         }
 
         .volunteer-tag {
-            background: #ddd2c3;
+            background: #2c281e;
             padding: 0.4rem 1.2rem;
             border-radius: 30px;
             font-size: 0.9rem;
             display: inline-block;
             margin: 0.3rem 0.3rem 0 0;
-            border: 1px solid #c1b5a4;
+            border: 1px solid #7e6a33;
+            color: #dbc68e;
         }
 
         .position-item {
-            background: #e0d6c9;
+            background: #332e21;
             padding: 0.8rem 1.5rem;
             border-radius: 40px;
             display: inline-block;
             margin-right: 1rem;
             margin-bottom: 0.8rem;
-            border: 1px solid #cabead;
+            border: 1px solid #b6973c;
+            color: #efdb9b;
+            font-weight: 500;
         }
 
         .footer-update {
             text-align: right;
             font-size: 0.9rem;
-            color: #8b8072;
-            border-top: 1px solid #d8cfc2;
+            color: #a28e55;
+            border-top: 1px solid #5b4c24;
             padding-top: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
 
-        /* 英文/中文切换隐藏逻辑 */
+        a {
+            color: #e2c570;
+            text-decoration: underline dotted;
+        }
+
+        /* 语言版本切换 */
         .lang-zh, .lang-en {
             display: none;
         }
@@ -327,59 +293,48 @@
             display: block;
         }
 
-        /* 响应式 */
-        @media (max-width: 900px) {
-            .main-card { flex-direction: column; }
-            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #c5bbad; }
-            .content { max-height: none; }
-            body { padding: 1rem; }
+        /* 移动端 */
+        @media (max-width: 800px) {
+            .golden-container { padding: 1.5rem; }
+            .top-right-nav { float: none; width: 100%; max-width: 100%; margin-left: 0; justify-content: flex-start; overflow-x: auto; }
+            .section { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
-<div class="main-card">
+<div class="golden-container">
 
-    <!-- ========= 左侧固定边栏 ========= -->
-    <div class="sidebar">
-        <div class="lang-switch">
-            <button class="lang-btn active" id="btnZH">🇨🇳 中</button>
-            <button class="lang-btn" id="btnEN">🇬🇧 EN</button>
+    <!-- ========= 右上角导航边栏 ========= -->
+    <div class="top-right-nav">
+        <button class="nav-pill active" data-target="profile">👤 简介</button>
+        <button class="nav-pill" data-target="skills">🔧 技能</button>
+        <button class="nav-pill" data-target="practice">📌 实践</button>
+        <button class="nav-pill" data-target="education">🎓 教育</button>
+        <button class="nav-pill" data-target="honors">🏅 荣誉</button>
+        <button class="nav-pill" data-target="volunteer">🤝 志愿</button>
+        <button class="nav-pill" data-target="positions">📋 职务</button>
+        <button class="nav-pill" data-target="contact">📧 联系</button>
+        <div class="lang-group">
+            <button class="lang-btn active" id="btnZH">中</button>
+            <button class="lang-btn" id="btnEN">EN</button>
         </div>
-
-        <div class="avatar">📸</div>
-        <div class="name-side">梁紫杭</div>
-        <div class="sub-side">会计学(司法会计) · 本科</div>
-
-        <!-- 导航菜单：点击滚动到对应板块 -->
-        <div class="nav-menu" id="navMenu">
-            <button class="nav-item active" data-target="profile"><i>👤</i> 个人简介</button>
-            <button class="nav-item" data-target="skills"><i>🔧</i> 技能专长</button>
-            <button class="nav-item" data-target="practice"><i>📌</i> 实践经历</button>
-            <button class="nav-item" data-target="education"><i>🎓</i> 教育背景</button>
-            <button class="nav-item" data-target="honors"><i>🏅</i> 荣誉奖项</button>
-            <button class="nav-item" data-target="volunteer"><i>🤝</i> 志愿服务</button>
-            <button class="nav-item" data-target="positions"><i>📋</i> 学生职务</button>
-            <button class="nav-item" data-target="contact"><i>📧</i> 联系我</button>
-        </div>
-
-        <!-- 迷你联系方式 (始终可见) -->
-        <div class="contact-mini">
-            <div><span>📧</span> 3049262925@qq.com</div>
-            <div><span>📍</span> 上海 · 华东政法大学</div>
-        </div>
-        <div class="update-badge">📅 最后更新 2026.03.06</div>
     </div>
 
-    <!-- ========= 右侧动态内容 ========= -->
-    <div class="content" id="contentArea">
-        <!-- 中文版本 (默认显示) -->
+    <!-- 小型身份标识 -->
+    <div class="identity-bar">
+        <span>📸</span> 梁紫杭 · 华东政法大学 · 会计(司法会计)
+    </div>
+
+    <!-- ========= 内容区域 ========= -->
+    <div class="content-area" id="contentArea">
+        <!-- 中文版本 -->
         <div class="lang-zh active" id="zhContent">
-            <!-- 简介区块 -->
+            <!-- 个人简介 -->
             <div class="section" id="profile">
                 <div class="section-title">👤 个人简介</div>
                 <div class="bio-block">
-                    梁紫杭，华东政法大学商学院会计学（司法会计方向）本科生。具备扎实的会计专业基础，擅长摄影与写作，善于从多维度观察、分析问题。致力于将专业素养与社会实践结合，培养跨领域洞察力。
-                    <div class="highlight" style="margin-top:1rem;">
+                    梁紫杭，华东政法大学商学院会计学（司法会计方向）本科生。具备扎实的会计专业基础，擅长摄影与写作，善于多维度观察分析。致力于将专业素养与社会实践结合，培养跨领域洞察力。
+                    <div class="gold-highlight" style="margin-top:1rem;">
                         <strong>✨ 核心优势：</strong> 严谨逻辑 · 敏锐观察 · 文字表达 · 组织协调
                     </div>
                 </div>
@@ -389,18 +344,19 @@
             <div class="section" id="skills">
                 <div class="section-title">🔧 技能专长</div>
                 <div class="skills-wrapper">
-                    <span class="skill-tag">基础会计</span>
+                    <span class="skill-tag">基础会计/财务报表分析</span>
                     <span class="skill-tag">司法会计基础</span>
-                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Python/数据分析</span>
                     <span class="skill-tag">Excel/SPSS</span>
+                    <span class="skill-tag">实证分析/计量基础</span>
                     <span class="skill-tag">摄影(纪实/人像)</span>
                     <span class="skill-tag">写作(分析/随笔)</span>
                     <span class="skill-tag">英语CET-6</span>
-                    <span class="skill-tag">计算机</span>
+                    <span class="skill-tag">PPT/演讲表达</span>
                 </div>
             </div>
 
-            <!-- 实践经历 (补充详细) -->
+            <!-- 实践经历（完整补充） -->
             <div class="section" id="practice">
                 <div class="section-title">📌 实践经历</div>
 
@@ -423,7 +379,7 @@
                 </div>
             </div>
 
-            <!-- 教育经历 -->
+            <!-- 教育背景 -->
             <div class="section" id="education">
                 <div class="section-title">🎓 教育背景</div>
                 <div class="exp-card">
@@ -467,7 +423,7 @@
                     <span class="volunteer-tag">招生宣讲志愿者</span>
                     <span class="volunteer-tag">闵行区图书馆志愿者</span>
                 </div>
-                <p style="margin-top: 1rem; color: #5b5348;">累计志愿服务时长70+小时，积极参与社会公益。</p>
+                <p style="margin-top: 1rem; color: #b6a26d;">累计志愿服务时长100+小时，积极参与社会公益。</p>
             </div>
 
             <!-- 学生职务 -->
@@ -477,102 +433,40 @@
                     <span class="position-item">商学院团委组织部 部长</span>
                     <span class="position-item">华东政法大学大学生创业协会团务部 理事</span>
                 </div>
-                <p style="margin-top: 1rem; color: #5b5348;">负责组织建设、团务统筹及创业协会思想引领工作，多次策划组织活动。</p>
+                <p style="margin-top: 1rem; color: #b6a26d;">负责组织建设、团务统筹及创业协会思想引领工作，多次策划校级活动。</p>
             </div>
 
             <!-- 联系我 -->
             <div class="section" id="contact">
                 <div class="section-title">📧 联系我</div>
                 <div class="bio-block">
-                    <p style="margin-bottom: 0.5rem;"><strong>📱 邮箱：</strong> <a href="mailto:3049262925@qq.com" style="color:#3f3a32; text-decoration:underline dotted;">3049262925@qq.com</a> (优先)</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>📱 邮箱：</strong> <a href="mailto:3049262925@qq.com">3049262925@qq.com</a> (优先)</p>
                     <p><strong>📍 地址：</strong> 上海市松江区 · 华东政法大学商学院</p>
                 </div>
             </div>
-            <div class="footer-update">📅 页面最后更新：2026年3月6日</div>
+            <div class="footer-update">📅 页面最后更新：2026年3月16日</div>
         </div>
 
-        <!-- 英文版本 (结构与中文对应，仅翻译关键信息) -->
+        <!-- 英文版本 (仅保留对应结构，内容简略翻译) -->
         <div class="lang-en" id="enContent">
-            <div class="section" id="profile-en">
-                <div class="section-title">👤 Profile</div>
-                <div class="bio-block">
-                    Zihang Liang, undergraduate student in Accounting (Forensic Accounting) at East China University of Political Science and Law. Solid accounting foundation, skilled in photography & writing, with multi-dimensional observation and analysis abilities.
-                    <div class="highlight" style="margin-top:1rem;"><strong>✨ Strengths:</strong> Logical thinking · Observational skills · Written expression · Organization</div>
-                </div>
+            <div class="section" id="profile-en"><div class="section-title">👤 Profile</div><div class="bio-block">Zihang Liang, Accounting (Forensic) undergraduate at ECUPL. Skilled in photography & writing, with logical thinking and organization.<div class="gold-highlight"><strong>Strengths:</strong> Logic · Observation · Expression · Coordination</div></div></div>
+            <div class="section" id="skills-en"><div class="section-title">🔧 Skills</div><div class="skills-wrapper"><span class="skill-tag">Financial Accounting</span><span class="skill-tag">Forensic Acct</span><span class="skill-tag">Python/Data</span><span class="skill-tag">Excel/SPSS</span><span class="skill-tag">Photography</span><span class="skill-tag">Writing</span><span class="skill-tag">CET-6</span></div></div>
+            <div class="section" id="practice-en"><div class="section-title">📌 Projects</div>
+                <div class="exp-card"><div class="exp-title">“Youth Economy” Sustainability Research</div><div class="exp-meta">Project Leader · ECUPL Excellent Project | 2025</div><div class="exp-desc">Led research on youth consumption patterns in Shanghai; awarded university excellence.</div></div>
+                <div class="exp-card"><div class="exp-title">Reverse Consumption & “Small Table” Economy</div><div class="exp-meta">Project Leader · Completed | 2024-2025</div><div class="exp-desc">Investigated reverse consumption among youth; completed final report.</div></div>
+                <div class="exp-card"><div class="exp-title">Youth League Cadre Competition</div><div class="exp-meta">Team 3rd Prize | 2025</div><div class="exp-desc">Won third place in university-level competition.</div></div>
             </div>
-            <div class="section" id="skills-en">
-                <div class="section-title">🔧 Skills</div>
-                <div class="skills-wrapper">
-                    <span class="skill-tag">Financial Accounting</span>
-                    <span class="skill-tag">Forensic Accounting Basics</span>
-                    <span class="skill-tag">Python/</span>
-                    <span class="skill-tag">Excel/SPSS</span>
-                    <span class="skill-tag">Photography</span>
-                    <span class="skill-tag">Writing</span>
-                    <span class="skill-tag">English CET-6</span>
-                </div>
-            </div>
-            <div class="section" id="practice-en">
-                <div class="section-title">📌 Projects</div>
-                <div class="exp-card">
-                    <div class="exp-title">“Youth Economy” Sustainability Research (Shanghai)</div>
-                    <div class="exp-meta">Project Leader · ECUPL Excellent Project | 2025</div>
-                    <div class="exp-desc">Led research on youth consumption patterns across 3 districts; awarded university-level excellence.</div>
-                </div>
-                <div class="exp-card">
-                    <div class="exp-title">Reverse Consumption & “Small Table” Economy</div>
-                    <div class="exp-meta">Project Leader · Completed Project | 2024-2025</div>
-                    <div class="exp-desc">Investigated reverse consumption among youth using surveys and interviews; completed final report.</div>
-                </div>
-                <div class="exp-card">
-                    <div class="exp-title">Youth League Cadre Competition</div>
-                    <div class="exp-meta">Team Third Prize | 2025</div>
-                    <div class="exp-desc">Represented Business School and won third place in university-level competition.</div>
-                </div>
-            </div>
-            <div class="section" id="education-en">
-                <div class="section-title">🎓 Education</div>
-                <div class="exp-card"><div class="exp-title">ECUPL · B.A. Accounting (Forensic)</div><div class="exp-meta">2024 – present</div></div>
-                <div class="exp-card"><div class="exp-title">Shangyu High School</div><div class="exp-meta">2021 – 2024</div></div>
-                <div class="exp-card"><div class="exp-title">Shangyu Foreign Language Middle School</div><div class="exp-meta">2018 – 2021</div></div>
-                <div class="exp-card"><div class="exp-title">Bowen Elementary School</div><div class="exp-meta">2012 – 2018</div></div>
-            </div>
-            <div class="section" id="honors-en">
-                <div class="section-title">🏅 Honors</div>
-                <div class="honor-list">
-                    <span class="honor-item">Shangyu Youqian Scholarship</span>
-                    <span class="honor-item">ECUPL First-Class Scholarship</span>
-                    <span class="honor-item">Outstanding League Member</span>
-                    <span class="honor-item">ECUPL Merit Student</span>
-                    <span class="honor-item">Youth League Cadre Competition 3rd Prize</span>
-                </div>
-            </div>
-            <div class="section" id="volunteer-en">
-                <div class="section-title">🤝 Volunteer</div>
-                <span class="volunteer-tag">Shanghai Natural History Museum</span>
-                <span class="volunteer-tag">Qingpu Marathon</span>
-                <span class="volunteer-tag">Library Volunteer</span>
-                <span class="volunteer-tag">Admission Promoter</span>
-                <p style="margin-top:1rem;">70+ volunteer hours, active in community service.</p>
-            </div>
-            <div class="section" id="positions-en">
-                <div class="section-title">📋 Leadership</div>
-                <span class="position-item">Minister, Youth League Organization Dept</span>
-                <span class="position-item">Council Member, Entrepreneurship Association</span>
-            </div>
-            <div class="section" id="contact-en">
-                <div class="section-title">📧 Contact</div>
-                <div class="bio-block">
-                    <p><strong>Email:</strong> <a href="mailto:3049262925@qq.com">3049262925@qq.com</a></p>
-                    <p><strong>Address:</strong> Shanghai · ECUPL Business School</p>
-                </div>
-            </div>
-            <div class="footer-update">📅 Last updated: Mar 6, 2026</div>
+            <div class="section" id="education-en"><div class="section-title">🎓 Education</div><div class="exp-card"><div class="exp-title">ECUPL · B.A. Accounting (Forensic)</div><div class="exp-meta">2024 – present</div></div><div class="exp-card"><div class="exp-title">Shangyu High School</div><div class="exp-meta">2021 – 2024</div></div></div>
+            <div class="section" id="honors-en"><div class="section-title">🏅 Honors</div><div class="honor-list"><span class="honor-item">Youqian Scholarship</span><span class="honor-item">First-Class Scholarship</span><span class="honor-item">Outstanding Member</span><span class="honor-item">Merit Student</span><span class="honor-item">Cadre Competition 3rd</span></div></div>
+            <div class="section" id="volunteer-en"><div class="section-title">🤝 Volunteer</div><span class="volunteer-tag">Natural History Museum</span><span class="volunteer-tag">Marathon</span><span class="volunteer-tag">Library</span><span class="volunteer-tag">Admission</span><p>100+ hours</p></div>
+            <div class="section" id="positions-en"><div class="section-title">📋 Leadership</div><span class="position-item">Organization Minister</span><span class="position-item">Entrepreneurship Assoc. Council</span></div>
+            <div class="section" id="contact-en"><div class="section-title">📧 Contact</div><div class="bio-block"><p><a href="mailto:3049262925@qq.com">3049262925@qq.com</a></p><p>Shanghai · ECUPL</p></div></div>
+            <div class="footer-update">📅 Last updated: Mar 16, 2026</div>
         </div>
     </div>
 </div>
 
-<!-- 交互 JS：语言切换 + 边栏导航滚动 + 激活样式 -->
+<!-- 交互 JS：右上角导航滚动 + 语言切换 -->
 <script>
     (function() {
         // 语言切换
@@ -580,6 +474,7 @@
         const enBtn = document.getElementById('btnEN');
         const zhDiv = document.getElementById('zhContent');
         const enDiv = document.getElementById('enContent');
+        const navPills = document.querySelectorAll('.nav-pill');
 
         function setLang(lang) {
             if (lang === 'zh') {
@@ -587,98 +482,67 @@
                 enBtn.classList.remove('active');
                 zhDiv.classList.add('active');
                 enDiv.classList.remove('active');
-                // 导航项文案可不变，但可保留功能
             } else {
                 enBtn.classList.add('active');
                 zhBtn.classList.remove('active');
                 enDiv.classList.add('active');
                 zhDiv.classList.remove('active');
             }
-            // 保持当前滚动位置
+            // 切换后高亮第一个导航（可选）
         }
 
         zhBtn.addEventListener('click', () => setLang('zh'));
         enBtn.addEventListener('click', () => setLang('en'));
 
-        // 导航菜单点击滚动 + 激活样式
-        const navItems = document.querySelectorAll('.nav-item');
-        const sections = {
-            profile: 'profile', skills: 'skills', practice: 'practice', education: 'education',
-            honors: 'honors', volunteer: 'volunteer', positions: 'positions', contact: 'contact'
-        };
-
-        function removeActiveClass() {
-            navItems.forEach(item => item.classList.remove('active'));
+        // 导航点击滚动 + 激活样式
+        function removeActive() {
+            navPills.forEach(p => p.classList.remove('active'));
         }
 
-        navItems.forEach(item => {
-            item.addEventListener('click', function(e) {
+        navPills.forEach(pill => {
+            pill.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('data-target');  // 例如 'profile'
-                // 确定当前语言版本
+                const target = this.getAttribute('data-target');
+                if (!target) return;
                 const isZh = zhDiv.classList.contains('active');
-                // 实际要滚动的元素ID：中文版直接使用 targetId，英文版使用 targetId+'-en'，但英文版里ID相同（已设置一致）
                 let element;
                 if (isZh) {
-                    element = document.getElementById(targetId);
+                    element = document.getElementById(target);
                 } else {
-                    // 英文版里ID为 profile-en, skills-en ... 但我们在英文版div中使用了 profile-en, 需要映射
-                    const enMap = {
-                        'profile': 'profile-en',
-                        'skills': 'skills-en',
-                        'practice': 'practice-en',
-                        'education': 'education-en',
-                        'honors': 'honors-en',
-                        'volunteer': 'volunteer-en',
-                        'positions': 'positions-en',
-                        'contact': 'contact-en'
-                    };
-                    element = document.getElementById(enMap[targetId] || targetId);
+                    // 英文版使用带 -en 的ID
+                    element = document.getElementById(target + '-en');
                 }
                 if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-                // 激活样式
-                removeActiveClass();
+                removeActive();
                 this.classList.add('active');
             });
         });
 
-        // 监听滚动高亮对应菜单 (简单处理：根据可视区域)
-        const contentDiv = document.getElementById('contentArea');
-        const allSections = document.querySelectorAll('.section[id], .section[id$="-en"]');
-
-        function updateActiveNavOnScroll() {
-            const scrollPos = contentDiv.scrollTop + 80;  // 内容区的滚动位置
+        // 滚动时自动高亮对应导航（简单版，可优化）
+        const content = document.getElementById('contentArea');
+        function updateActiveOnScroll() {
             const isZh = zhDiv.classList.contains('active');
+            const sections = isZh 
+                ? Array.from(document.querySelectorAll('.section[id]:not([id$="-en"])')) 
+                : Array.from(document.querySelectorAll('.section[id$="-en"]'));
+            if (sections.length === 0) return;
+            const scrollPos = content.scrollTop + 150;
             let currentId = '';
-
-            allSections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;  // 相对content的偏移
-                if (scrollPos >= sectionTop) {
-                    // 提取id base
-                    let id = section.id;
-                    if (isZh && id.endsWith('-en')) return;   // 中文时忽略英文板块
-                    if (!isZh && !id.endsWith('-en') && id !== 'profile' && id !== 'skills' && id !== 'practice' && id !== 'education' && id !== 'honors' && id !== 'volunteer' && id !== 'positions' && id !== 'contact') return; // 简单过滤
-                    currentId = id.replace('-en', '');
+            for (let sec of sections) {
+                if (sec.offsetTop <= scrollPos) {
+                    currentId = sec.id.replace('-en', '');
                 }
-            });
-
+            }
             if (currentId) {
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('data-target') === currentId) {
-                        item.classList.add('active');
-                    }
-                });
+                removeActive();
+                const activePill = Array.from(navPills).find(p => p.getAttribute('data-target') === currentId);
+                if (activePill) activePill.classList.add('active');
             }
         }
-
-        contentDiv.addEventListener('scroll', updateActiveNavOnScroll);
-        // 初始激活个人简介
-        document.querySelector('.nav-item[data-target="profile"]').classList.add('active');
+        content.addEventListener('scroll', updateActiveOnScroll);
     })();
 </script>
 </body>
 </html>
-
