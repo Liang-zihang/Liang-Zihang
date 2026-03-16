@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -57,7 +58,6 @@
             animation: float-particle 15s linear infinite;
         }
 
-        /* 生成15个不同位置的粒子 */
         .particle:nth-child(1) { left: 5%; animation-duration: 14s; animation-delay: 0s; }
         .particle:nth-child(2) { left: 15%; width: 3px; height: 3px; animation-duration: 18s; animation-delay: 2s; }
         .particle:nth-child(3) { left: 25%; animation-duration: 16s; animation-delay: 1s; }
@@ -86,7 +86,6 @@
             position: relative;
         }
 
-        /* 主容器 – 黑金风格 */
         .golden-container {
             max-width: 1300px;
             width: 100%;
@@ -126,7 +125,6 @@
             overflow-y: auto;
         }
 
-        /* 导航品牌标识 - 无发光 */
         .nav-brand {
             width: 100%;
             text-align: center;
@@ -147,13 +145,12 @@
         }
 
         .nav-brand-name {
-            font-family: "Orbitron", "华文行楷", "STXingkai", cursive;
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-family: "Ma Shan Zheng", "ZCOOL KuaiLe", "华文行楷", "STXingkai", cursive;
+            font-size: 1.5rem;
+            font-weight: 500;
             color: #e6c87c;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            /* 无发光效果 */
+            letter-spacing: 1px;
+            line-height: 1.3;
         }
 
         .nav-brand-sub {
@@ -161,9 +158,9 @@
             color: #b6a26d;
             margin-top: 0.3rem;
             letter-spacing: 1px;
+            font-family: "Space Grotesk", sans-serif;
         }
 
-        /* 导航按钮 */
         .nav-pill {
             background: transparent;
             border: none;
@@ -197,7 +194,6 @@
             border-color: #b6973c;
         }
 
-        /* 语言切换组 */
         .lang-group {
             display: flex;
             margin-top: auto;
@@ -241,13 +237,13 @@
         }
 
         .profile-name {
-            font-family: "Orbitron", "华文行楷", "STXingkai", cursive;
+            font-family: "Ma Shan Zheng", "ZCOOL KuaiLe", "华文行楷", "STXingkai", cursive;
             font-size: 4rem;
-            font-weight: 700;
+            font-weight: 500;
             color: #e6c87c;
             margin-bottom: 0.3rem;
-            letter-spacing: 2px;
-            /* 无发光效果 */
+            letter-spacing: 1px;
+            line-height: 1.2;
         }
 
         .profile-subtitle {
@@ -277,9 +273,9 @@
             border-radius: 16px;
             color: #ecd88b;
             border-left: 4px solid #b6973c;
+            font-family: "Space Grotesk", sans-serif;
         }
 
-        /* 内容区域 */
         .content-area {
             color: #ece3cf;
         }
@@ -302,18 +298,17 @@
         }
 
         .section-title {
-            font-family: "Orbitron", "华文行楷", "STXingkai", cursive;
+            font-family: "Ma Shan Zheng", "ZCOOL KuaiLe", "华文行楷", "STXingkai", cursive;
             font-size: 2rem;
-            font-weight: 600;
+            font-weight: 500;
             color: #e6c87c;
             margin-bottom: 1.5rem;
             border-left: 6px solid #c9a03d;
             padding-left: 1.2rem;
-            letter-spacing: 1px;
-            /* 无发光效果 */
+            letter-spacing: 0.5px;
+            line-height: 1.3;
         }
 
-        /* 技能标签 */
         .skills-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -329,6 +324,7 @@
             border: 1px solid #8f7b3c;
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
+            font-family: "Space Grotesk", "Microsoft YaHei", sans-serif;
         }
 
         .skill-tag:hover {
@@ -337,7 +333,6 @@
             transform: scale(1.02);
         }
 
-        /* 经历卡片 */
         .exp-card {
             background: rgba(32, 30, 24, 0.7);
             backdrop-filter: blur(5px);
@@ -354,11 +349,12 @@
         }
 
         .exp-title {
-            font-family: "Orbitron", "华文行楷", "STXingkai", cursive;
+            font-family: "Ma Shan Zheng", "ZCOOL KuaiLe", "华文行楷", "STXingkai", cursive;
             font-size: 1.3rem;
-            font-weight: 600;
+            font-weight: 500;
             color: #e6c468;
             margin-bottom: 0.3rem;
+            line-height: 1.4;
         }
 
         .exp-meta {
@@ -368,13 +364,15 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
+            font-family: "Space Grotesk", sans-serif;
         }
 
         .exp-desc {
             color: #cdc19e;
+            font-family: "Space Grotesk", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
         }
 
-        /* 荣誉标签 */
         .honor-list {
             display: flex;
             flex-wrap: wrap;
@@ -389,6 +387,7 @@
             border: 1px solid #8f7b3c;
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
+            font-family: "Space Grotesk", sans-serif;
         }
 
         .honor-item:hover {
@@ -396,7 +395,6 @@
             border-color: #b6973c;
         }
 
-        /* 志愿者标签 */
         .volunteer-tag {
             background: rgba(44, 40, 30, 0.7);
             padding: 0.5rem 1.3rem;
@@ -408,6 +406,7 @@
             color: #dbc68e;
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
+            font-family: "Space Grotesk", sans-serif;
         }
 
         .volunteer-tag:hover {
@@ -415,7 +414,6 @@
             border-color: #b6973c;
         }
 
-        /* 职务标签 */
         .position-item {
             background: rgba(51, 46, 33, 0.7);
             padding: 0.8rem 1.6rem;
@@ -428,6 +426,7 @@
             font-weight: 500;
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
+            font-family: "Space Grotesk", sans-serif;
         }
 
         .position-item:hover {
@@ -456,15 +455,33 @@
             border-bottom-color: #ffd966;
         }
 
-        /* 语言版本切换 */
+        /* 语言版本切换 - 导航和头部也受控制 */
+        .nav-zh, .nav-en {
+            display: none;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .nav-zh.active, .nav-en.active {
+            display: block;
+        }
+        
+        .profile-zh, .profile-en {
+            display: none;
+        }
+        
+        .profile-zh.active, .profile-en.active {
+            display: block;
+        }
+        
         .lang-zh, .lang-en {
             display: none;
         }
+        
         .lang-zh.active, .lang-en.active {
             display: block;
         }
 
-        /* 移动端适配 */
         @media (max-width: 1000px) {
             body { padding: 1rem; }
             
@@ -506,6 +523,10 @@
             .profile-name {
                 font-size: 3rem;
             }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -522,18 +543,41 @@
     <!-- 右侧全高导航 -->
     <div class="right-nav">
         <div class="nav-brand">
-            <div class="nav-brand-name">梁紫杭</div>
-            <div class="nav-brand-sub">Zihang Liang</div>
+            <!-- 中文导航品牌 -->
+            <div class="nav-zh active" id="navBrandZH">
+                <div class="nav-brand-name">梁紫杭</div>
+                <div class="nav-brand-sub">华东政法大学</div>
+            </div>
+            <!-- 英文导航品牌 -->
+            <div class="nav-en" id="navBrandEN">
+                <div class="nav-brand-name">Zihang Liang</div>
+                <div class="nav-brand-sub">ECUPL</div>
+            </div>
         </div>
         
-        <button class="nav-pill active" data-target="profile">👤 个人简介</button>
-        <button class="nav-pill" data-target="skills">🔧 技能专长</button>
-        <button class="nav-pill" data-target="practice">📌 实践经历</button>
-        <button class="nav-pill" data-target="education">🎓 教育背景</button>
-        <button class="nav-pill" data-target="honors">🏅 荣誉奖项</button>
-        <button class="nav-pill" data-target="volunteer">🤝 志愿服务</button>
-        <button class="nav-pill" data-target="positions">📋 学生职务</button>
-        <button class="nav-pill" data-target="contact">📧 联系我</button>
+        <!-- 中文导航按钮 -->
+        <div class="nav-zh active" id="navButtonsZH">
+            <button class="nav-pill active" data-target="profile">👤 个人简介</button>
+            <button class="nav-pill" data-target="skills">🔧 技能专长</button>
+            <button class="nav-pill" data-target="practice">📌 实践经历</button>
+            <button class="nav-pill" data-target="education">🎓 教育背景</button>
+            <button class="nav-pill" data-target="honors">🏅 荣誉奖项</button>
+            <button class="nav-pill" data-target="volunteer">🤝 志愿服务</button>
+            <button class="nav-pill" data-target="positions">📋 学生职务</button>
+            <button class="nav-pill" data-target="contact">📧 联系我</button>
+        </div>
+        
+        <!-- 英文导航按钮 -->
+        <div class="nav-en" id="navButtonsEN">
+            <button class="nav-pill active" data-target="profile">👤 Profile</button>
+            <button class="nav-pill" data-target="skills">🔧 Skills</button>
+            <button class="nav-pill" data-target="practice">📌 Projects</button>
+            <button class="nav-pill" data-target="education">🎓 Education</button>
+            <button class="nav-pill" data-target="honors">🏅 Honors</button>
+            <button class="nav-pill" data-target="volunteer">🤝 Volunteer</button>
+            <button class="nav-pill" data-target="positions">📋 Leadership</button>
+            <button class="nav-pill" data-target="contact">📧 Contact</button>
+        </div>
         
         <div class="lang-group">
             <button class="lang-btn active" id="btnZH">中</button>
@@ -543,15 +587,32 @@
 
     <!-- 主容器 -->
     <div class="golden-container">
-        <!-- 个人简介头部 -->
-        <div class="profile-header">
-            <h1 class="profile-name">梁紫杭</h1>
-            <div class="profile-subtitle">华东政法大学 · 会计学（司法会计方向）本科生</div>
-            
-            <div class="profile-bio">
-                <p>具备扎实的会计专业基础，擅长摄影与写作，善于多维度观察分析。致力于将专业素养与社会实践结合，培养跨领域洞察力。</p>
-                <div class="profile-highlight">
-                    <strong>✨ 核心优势：</strong> 严谨逻辑 · 敏锐观察 · 文字表达 · 组织协调
+        <!-- 个人简介头部 - 中文版 -->
+        <div class="profile-zh active" id="profileZH">
+            <div class="profile-header">
+                <h1 class="profile-name">梁紫杭</h1>
+                <div class="profile-subtitle">华东政法大学 · 会计学（司法会计方向）本科生</div>
+                
+                <div class="profile-bio">
+                    <p>具备扎实的会计专业基础，擅长摄影与写作，善于多维度观察分析。致力于将专业素养与社会实践结合，培养跨领域洞察力。</p>
+                    <div class="profile-highlight">
+                        <strong>✨ 核心优势：</strong> 严谨逻辑 · 敏锐观察 · 文字表达 · 组织协调
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 个人简介头部 - 英文版 -->
+        <div class="profile-en" id="profileEN">
+            <div class="profile-header">
+                <h1 class="profile-name">Zihang Liang</h1>
+                <div class="profile-subtitle">ECUPL · B.A. in Accounting (Forensic Accounting)</div>
+                
+                <div class="profile-bio">
+                    <p>Solid foundation in accounting, skilled in photography and writing, with multi-dimensional observation and analysis abilities. Dedicated to combining professional knowledge with social practice.</p>
+                    <div class="profile-highlight">
+                        <strong>✨ Core Strengths:</strong> Logical Thinking · Observation · Writing · Organization
+                    </div>
                 </div>
             </div>
         </div>
@@ -653,7 +714,7 @@
                         <span class="position-item">商学院团委组织部 部长</span>
                         <span class="position-item">华东政法大学大学生创业协会团务部 理事</span>
                     </div>
-                    <p style="margin-top: 1rem; color: #b6a26d;">负责组织建设、团务统筹及创业协会思想引领工作，多次参与院级活动。</p>
+                    <p style="margin-top: 1rem; color: #b6a26d;">负责组织建设、团务统筹及创业协会思想引领工作，多次策划校级活动。</p>
                 </div>
 
                 <!-- 联系我 -->
@@ -669,72 +730,76 @@
 
             <!-- 英文版本 -->
             <div class="lang-en" id="enContent">
-                <div class="section" id="skills-en"><div class="section-title">🔧 Skills</div><div class="skills-wrapper"><span class="skill-tag">Financial Accounting</span><span class="skill-tag">Forensic Acct</span><span class="skill-tag">Python/Data</span><span class="skill-tag">Excel/SPSS</span><span class="skill-tag">Photography</span><span class="skill-tag">Writing</span><span class="skill-tag">CET-6</span></div></div>
-                <div class="section" id="practice-en"><div class="section-title">📌 Projects</div>
-                    <div class="exp-card"><div class="exp-title">“Youth Economy” Sustainability Research</div><div class="exp-meta">Project Leader · ECUPL Excellent Project | 2025</div><div class="exp-desc">Led research on youth consumption patterns in Shanghai; awarded university excellence.</div></div>
-                    <div class="exp-card"><div class="exp-title">Reverse Consumption & “Small Table” Economy</div><div class="exp-meta">Project Leader · Completed | 2024-2025</div><div class="exp-desc">Investigated reverse consumption among youth; completed final report.</div></div>
-                    <div class="exp-card"><div class="exp-title">Youth League Cadre Competition</div><div class="exp-meta">Team 3rd Prize | 2025</div><div class="exp-desc">Won third place in university-level competition.</div></div>
+                <div class="section" id="skills-en">
+                    <div class="section-title">🔧 Skills</div>
+                    <div class="skills-wrapper">
+                        <span class="skill-tag">Financial Accounting</span>
+                        <span class="skill-tag">Forensic Accounting</span>
+                        <span class="skill-tag">Python/Data Analysis</span>
+                        <span class="skill-tag">Excel/SPSS</span>
+                        <span class="skill-tag">Econometrics</span>
+                        <span class="skill-tag">Photography</span>
+                        <span class="skill-tag">Writing</span>
+                        <span class="skill-tag">CET-6</span>
+                        <span class="skill-tag">Presentation</span>
+                    </div>
                 </div>
-                <div class="section" id="education-en"><div class="section-title">🎓 Education</div><div class="exp-card"><div class="exp-title">ECUPL · B.A. Accounting (Forensic)</div><div class="exp-meta">2024 – present</div></div><div class="exp-card"><div class="exp-title">Shangyu High School</div><div class="exp-meta">2021 – 2024</div></div></div>
-                <div class="section" id="honors-en"><div class="section-title">🏅 Honors</div><div class="honor-list"><span class="honor-item">Youqian Scholarship</span><span class="honor-item">First-Class Scholarship</span><span class="honor-item">Outstanding Member</span><span class="honor-item">Merit Student</span><span class="honor-item">Cadre Competition 3rd</span></div></div>
-                <div class="section" id="volunteer-en"><div class="section-title">🤝 Volunteer</div><span class="volunteer-tag">Natural History Museum</span><span class="volunteer-tag">Marathon</span><span class="volunteer-tag">Library</span><span class="volunteer-tag">Admission</span><p>100+ hours</p></div>
-                <div class="section" id="positions-en"><div class="section-title">📋 Leadership</div><span class="position-item">Organization Minister</span><span class="position-item">Entrepreneurship Assoc. Council</span></div>
-                <div class="section" id="contact-en"><div class="section-title">📧 Contact</div><div class="profile-bio"><p><a href="mailto:3049262925@qq.com">3049262925@qq.com</a></p><p>Shanghai · ECUPL</p></div></div>
-                <div class="footer-update">📅 Last updated: Mar 16, 2026</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 交互JS -->
-    <script>
-        (function() {
-            const zhBtn = document.getElementById('btnZH');
-            const enBtn = document.getElementById('btnEN');
-            const zhDiv = document.getElementById('zhContent');
-            const enDiv = document.getElementById('enContent');
-            const navPills = document.querySelectorAll('.nav-pill');
-
-            function setLang(lang) {
-                if (lang === 'zh') {
-                    zhBtn.classList.add('active');
-                    enBtn.classList.remove('active');
-                    zhDiv.classList.add('active');
-                    enDiv.classList.remove('active');
-                } else {
-                    enBtn.classList.add('active');
-                    zhBtn.classList.remove('active');
-                    enDiv.classList.add('active');
-                    zhDiv.classList.remove('active');
-                }
-            }
-
-            zhBtn.addEventListener('click', () => setLang('zh'));
-            enBtn.addEventListener('click', () => setLang('en'));
-
-            function removeActive() {
-                navPills.forEach(p => p.classList.remove('active'));
-            }
-
-            navPills.forEach(pill => {
-                pill.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = this.getAttribute('data-target');
-                    if (!target) return;
-                    const isZh = zhDiv.classList.contains('active');
-                    let element;
-                    if (isZh) {
-                        element = document.getElementById(target);
-                    } else {
-                        element = document.getElementById(target + '-en');
-                    }
-                    if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                    removeActive();
-                    this.classList.add('active');
-                });
-            });
-        })();
-    </script>
-</body>
-</html>
+                
+                <div class="section" id="practice-en">
+                    <div class="section-title">📌 Projects</div>
+                    <div class="exp-card">
+                        <div class="exp-title">"Youth Economy" Sustainability Research</div>
+                        <div class="exp-meta">Project Leader · ECUPL Excellent Project | 2025</div>
+                        <div class="exp-desc">Led research on youth consumption patterns across 3 districts in Shanghai; proposed sustainable paradigm for youth economy; awarded university-level excellence.</div>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-title">Reverse Consumption & "Small Table" Economy</div>
+                        <div class="exp-meta">Project Leader · ECUPL Completed Project | 2024-2025</div>
+                        <div class="exp-desc">Investigated reverse consumption phenomenon among youth communities using surveys and interviews; analyzed impact on economic vitality; completed research report.</div>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-title">Youth League Cadre Competition</div>
+                        <div class="exp-meta">Team Third Prize | 2025</div>
+                        <div class="exp-desc">Represented Business School in university-level competition; demonstrated theoretical knowledge, case analysis, and teamwork skills; won third place.</div>
+                    </div>
+                </div>
+                
+                <div class="section" id="education-en">
+                    <div class="section-title">🎓 Education</div>
+                    <div class="exp-card">
+                        <div class="exp-title">East China University of Political Science and Law</div>
+                        <div class="exp-meta">B.A. in Accounting (Forensic Accounting) | 2024 – Present</div>
+                        <div class="exp-desc">Core Courses: Financial Accounting, Intermediate Accounting, Introduction to Forensic Accounting, Economic Law, Auditing, Calculus, Statistics</div>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-title">Shangyu High School, Zhejiang</div>
+                        <div class="exp-meta">High School | 2021 – 2024</div>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-title">Shangyu Foreign Language Middle School</div>
+                        <div class="exp-meta">Junior High | 2018 – 2021</div>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-title">Bowen Elementary School, Zhejiang</div>
+                        <div class="exp-meta">Primary School | 2012 – 2018</div>
+                    </div>
+                </div>
+                
+                <div class="section" id="honors-en">
+                    <div class="section-title">🏅 Honors</div>
+                    <div class="honor-list">
+                        <span class="honor-item">Shangyu Youqian Scholarship</span>
+                        <span class="honor-item">ECUPL First-Class Scholarship</span>
+                        <span class="honor-item">ECUPL Outstanding League Member</span>
+                        <span class="honor-item">ECUPL Merit Student</span>
+                        <span class="honor-item">Youth League Competition 3rd Prize</span>
+                    </div>
+                </div>
+                
+                <div class="section" id="volunteer-en">
+                    <div class="section-title">🤝 Volunteer</div>
+                    <div>
+                        <span class="volunteer-tag">Shanghai Natural History Museum</span>
+                        <span class="volunteer-tag">Qingpu Marathon</span>
+                        <span class="volunteer-tag">Business School Letter Campaign</span>
+                        <span
