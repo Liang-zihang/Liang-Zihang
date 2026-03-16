@@ -32,28 +32,124 @@
             border: 1px solid #3a341c;
         }
 
-        /* ========= 右上角边栏 ========= */
-        .top-right-nav {
-            position: sticky;
-            top: 2rem;
-            float: right;
-            width: auto;
-            max-width: 280px;
-            background: #1e1c18;  /* 黑金深灰 */
-            border-radius: 60px;
-            padding: 0.6rem 1rem;
-            margin-bottom: 2rem;
-            margin-left: 2rem;
-            border: 1px solid #b6973c;
-            box-shadow: 0 10px 20px -5px #00000066, 0 0 15px #ffd9661a;
-            backdrop-filter: blur(4px);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.2rem;
-            z-index: 10;
-        }
+        /* 右侧垂直导航边栏 - 新样式 */
+.top-right-nav {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 140px;
+    background: #1e1c18;
+    border-radius: 40px;
+    padding: 1.2rem 0.5rem;
+    border: 1px solid #b6973c;
+    box-shadow: 0 10px 30px -5px #000000, 0 0 20px #ffd9661a;
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    z-index: 100;
+}
 
+/* 导航按钮 - 调整为垂直排列 */
+.nav-pill {
+    background: transparent;
+    border: none;
+    color: #c9b477;
+    padding: 0.7rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 100%;
+    text-align: center;
+    border: 1px solid transparent;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+.nav-pill:hover {
+    background: #3f3a2b;
+    color: #f3d886;
+    border-color: #b6973c;
+}
+
+.nav-pill.active {
+    background: #b28b3c;
+    color: #12100e;
+    font-weight: 600;
+    box-shadow: 0 0 12px #ffd966;
+    border-color: #e5b73b;
+}
+
+/* 语言切换组 - 放在导航下方 */
+.lang-group {
+    display: flex;
+    margin-top: 0.8rem;
+    background: #2a261e;
+    border-radius: 30px;
+    border: 1px solid #66551e;
+    width: 90%;
+    justify-content: center;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #bbaa77;
+    padding: 0.4rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    flex: 1;
+}
+
+.lang-btn.active {
+    background: #b28b3c;
+    color: #0f0e0b;
+    font-weight: 600;
+}
+
+/* 调整主容器，给右侧导航留出空间 */
+.golden-container {
+    max-width: 1300px;
+    width: 100%;
+    background: #121110;
+    border-radius: 36px;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.8), 0 0 0 1px rgba(212, 175, 55, 0.2) inset;
+    padding: 2rem 2.5rem;
+    padding-right: 180px;  /* 增加右侧内边距，避免内容被导航挡住 */
+    position: relative;
+    border: 1px solid #3a341c;
+    margin-right: 160px;    /* 为右侧固定导航留出空间 */
+}
+
+/* 移动端适配 */
+@media (max-width: 1000px) {
+    .golden-container {
+        padding-right: 2.5rem;
+        margin-right: 0;
+    }
+    .top-right-nav {
+        position: static;
+        transform: none;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+        right: auto;
+        top: auto;
+    }
+    .nav-pill {
+        width: auto;
+        padding: 0.5rem 1rem;
+    }
+    .lang-group {
+        width: auto;
+    }
+}
         .nav-pill {
             background: transparent;
             border: none;
